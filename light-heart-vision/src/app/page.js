@@ -8,7 +8,7 @@ export default function Home() {
       {/* Header */}
       <header className="fixed top-0 w-full bg-white shadow-md z-50 py-4">
         <nav className="flex justify-center gap-10 text-sm sm:text-base font-semibold">
-          <a href="#community" className="hover:text-yellow-600 transition">Community</a>
+          <a href="/hub" className="hover:text-yellow-600 transition">Community</a>
           <a href="#courses" className="hover:text-yellow-600 transition">Courses</a>
           <a href="#about" className="hover:text-yellow-600 transition">About</a>
           <a href="#membership" className="hover:text-yellow-600 transition">Membership</a>
