@@ -2,24 +2,8 @@
 
   import { useState, useEffect } from 'react';
 
-<<<<<<< HEAD
   export default function Home() {
     const [videoVisible, setVideoVisible] = useState(false);
-=======
-export default function Home() {
-  return (
-    <div className="min-h-screen flex flex-col justify-between items-center bg-[#f8f9fa] text-[#222] font-sans px-6 py-10 sm:px-16">
-      {/* Header */}
-      <header className="fixed top-0 w-full bg-white shadow-md z-50 py-4">
-        <nav className="flex justify-center gap-10 text-sm sm:text-base font-semibold">
-          <a href="/hub" className="hover:text-yellow-600 transition">Community</a>
-          <a href="#courses" className="hover:text-yellow-600 transition">Courses</a>
-          <a href="#about" className="hover:text-yellow-600 transition">About</a>
-          <a href="#membership" className="hover:text-yellow-600 transition">Membership</a>
-          <a href="#contact" className="hover:text-yellow-600 transition">Contact</a>
-        </nav>
-      </header>
->>>>>>> 45fe45d87cc65b8b627eed71680e42fa2eb60d5b
 
     const showVideo = () => {
       setVideoVisible(true);
