@@ -1,102 +1,100 @@
-import Image from "next/image";
+'use client';
+
+import Image from 'next/image';
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen flex flex-col justify-between items-center bg-[#f8f9fa] text-[#222] font-sans px-6 py-10 sm:px-16">
+      {/* Header */}
+      <header className="fixed top-0 w-full bg-white shadow-md z-50 py-4">
+        <nav className="flex justify-center gap-10 text-sm sm:text-base font-semibold">
+          <a href="#community" className="hover:text-yellow-600 transition">Community</a>
+          <a href="#courses" className="hover:text-yellow-600 transition">Courses</a>
+          <a href="#about" className="hover:text-yellow-600 transition">About</a>
+          <a href="#membership" className="hover:text-yellow-600 transition">Membership</a>
+          <a href="#contact" className="hover:text-yellow-600 transition">Contact</a>
+        </nav>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Hero Section */}
+      <section className="w-full text-center flex flex-col justify-center items-center pt-32 pb-20">
+        <h1 className="text-4xl sm:text-5xl font-bold mb-4">Awaken Wonder. Inspire Change.</h1>
+        <p className="text-lg sm:text-xl text-gray-600 mb-6">Connect ~ Community ~ Co-Creation</p>
+        <a
+          href="#newsletter"
+          className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 px-6 rounded-full transition"
+        >
+          Join the Vision
+        </a>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="w-full max-w-3xl text-center mb-20">
+        <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Welcome to Light Heart Vision</h2>
+        <p className="mb-6 text-gray-700">
+          We bring conscious creators together to imagine and build a better world.
+        </p>
+        <div className="aspect-w-16 aspect-h-9 w-full max-w-xl mx-auto rounded-lg overflow-hidden shadow-lg">
+          <iframe
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            title="Intro Video"
+            allowFullScreen
+            className="w-full h-full"
+          ></iframe>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      </section>
+
+      {/* Community Cards */}
+      <section id="community" className="text-center max-w-5xl mb-20 px-4">
+        <h2 className="text-2xl sm:text-3xl font-semibold mb-10">Explore Our Universe</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          {[
+            { title: '🌍 Our Story', desc: 'Meet the hearts behind the vision and why we started.' },
+            { title: '🎨 Creative Collabs', desc: 'Art jams, virtual circles, and co-creation magic await!' },
+            { title: '🌱 Events & Retreats', desc: 'Join us in sacred spaces for deep connection & growth.' },
+          ].map((card, i) => (
+            <div
+              key={i}
+              className="bg-white shadow-md rounded-xl p-6 hover:shadow-lg transition transform hover:-translate-y-1"
+            >
+              <h3 className="text-xl font-semibold mb-2">{card.title}</h3>
+              <p className="text-gray-600">{card.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Newsletter */}
+      <section
+        id="newsletter"
+        className="bg-[#fff8e1] w-full text-center py-16 px-6 mb-10 rounded-xl shadow-inner"
+      >
+        <h2 className="text-2xl font-semibold mb-6">Subscribe for Inspiration</h2>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            alert('✨ Thanks for joining the Light Heart Vision!');
+          }}
+          className="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+          <input
+            type="email"
+            placeholder="Enter your email"
+            required
+            className="px-4 py-2 rounded-lg border border-gray-300 w-full"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+          <button
+            type="submit"
+            className="bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-2 rounded-lg font-medium"
+          >
+            Subscribe
+          </button>
+        </form>
+      </section>
+
+      {/* Footer */}
+      <footer className="text-sm text-gray-500 py-6 text-center">
+        © {new Date().getFullYear()} Light Heart Vision. All rights reserved.
       </footer>
     </div>
   );
