@@ -41,7 +41,7 @@
         <header>
           <nav>
             <ul>
-              <li><a href="#community">Community</a></li>
+              <li><a href="/hub">Community</a></li>
               <li><a href="#courses">Courses</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#membership">Membership</a></li>
