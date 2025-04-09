@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 
 import { useState, useEffect } from 'react';
 
@@ -143,10 +144,15 @@ export default function Home() {
       <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=800&q=80" alt="Events" />
       <div className="card-title">Events</div>
     </div>
-    <div className="card" onClick={() => alert('Meet the Community')}>
-      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80" alt="Community" />
-      <div className="card-title">Community</div>
-    </div>
+    <Link href="/hub">
+  <div className="card">
+    <img
+      src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80"
+      alt="Community"
+    />
+    <div className="card-title">Community</div>
+  </div>
+</Link>
     <div className="card" onClick={() => alert('Check Out Blogs')}>
       <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80" alt="Blog" />
       <div className="card-title">Blog</div>
@@ -158,6 +164,7 @@ export default function Home() {
         <section className="section" id="community">
           <h2>Explore Our Universe</h2>
           <div className="card-container">
+            
             <div className="flip-card">
               <div className="flip-card-inner">
                 <div className="flip-card-front">🌍 Our Story</div>
