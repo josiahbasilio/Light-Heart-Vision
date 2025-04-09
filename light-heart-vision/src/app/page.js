@@ -4,11 +4,10 @@
 
   export default function Home() {
     const [videoVisible, setVideoVisible] = useState(false);
-
-    const showVideo = () => {
-      setVideoVisible(true);
-    };
-
+    const [showModal, setShowModal] = useState(false);
+  
+    const showVideo = () => setVideoVisible(true);
+    const toggleModal = () => setShowModal(!showModal); 
     useEffect(() => {
       const sections = document.querySelectorAll('.section');
   
@@ -56,8 +55,28 @@
           <div className="floating-shape"></div>
           <h1>Awaken Wonder. Inspire Change…</h1>
           <p>Connect ~ Community ~ Co-Creation</p>
-          <a className="cta-button" >Join the Vision</a>
+          <button className="cta-button" onClick={toggleModal}>Join the Vision</button>
         </section>
+
+
+         {/* Modal Popup */}
+      {showModal && (
+        <div className="modal-overlay" onClick={toggleModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <h2>✨ Join the Vision</h2>
+            <p>Subscribe to stay connected with Light Heart Vision!</p>
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              alert("You're in! 🌟");
+              setShowModal(false);
+            }}>
+              <input type="email" placeholder="Your email" required />
+              <button type="submit">Let's Go!</button>
+            </form>
+            <button className="close-modal" onClick={toggleModal}>×</button>
+          </div>
+        </div>
+      )}
 
         <section className="section video-section" id="about">
           <h2>Welcome to Light Heart Vision</h2>
