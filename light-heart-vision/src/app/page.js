@@ -150,25 +150,30 @@ export default function Home() {
         <section className="section featured-content">
   <h2>Featured Content</h2>
   <div className="cards">
+
     <div className="card" onClick={() => alert('Explore Courses')}>
-      <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?crop=entropy&cs=tinysrgb&fit=max&ixid=MXwyMDg5OXwwfDF8c2VhcmNofDJ8fGJvb2slMjBzdGFjayUyMG9uJTIwd2hpdGUtdGFibGV8ZW58MHx8fHwxNjE4NzQ0Nzg4&ixlib=rb-1.2.1&q=80&w=400" alt="Courses" />
+      <img src= "/images/course.png" 
+      alt="Courses" />
       <div className="card-title">Courses</div>
     </div>
+
     <div className="card" onClick={() => alert('See Upcoming Events')}>
-      <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=800&q=80" alt="Events" />
+      <img src="/images/events.png"  
+      alt="Events" />
       <div className="card-title">Events</div>
     </div>
+
     <Link href="/hub">
   <div className="card">
     <img
-      src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80"
+      src="/images/community.png"
       alt="Community"
     />
     <div className="card-title">Community</div>
   </div>
 </Link>
     <div className="card" onClick={() => alert('Check Out Blogs')}>
-      <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80" alt="Blog" />
+      <img src="/images/blog.png" alt="Blog" />
       <div className="card-title">Blog</div>
     </div>
   </div>
