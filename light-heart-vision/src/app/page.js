@@ -1,4 +1,4 @@
-  'use client';
+'use client';
 
 import { useState, useEffect } from 'react';
 
@@ -10,6 +10,7 @@ export default function Home() {
   const toggleModal = () => setShowModal(!showModal);
 
   useEffect(() => {
+    // Scroll animation observer
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -26,17 +27,24 @@ export default function Home() {
       observer.observe(section);
     });
 
+    // Mouse interaction for stars
+    let animationFrame;
     const handleMouseMove = (e) => {
-      document.querySelectorAll('.floating-shape').forEach((el, i) => {
-        const offset = (i + 1) * 10;
-        el.style.transform = `translate(${e.clientX / offset}px, ${e.clientY / offset}px)`;
+      if (animationFrame) cancelAnimationFrame(animationFrame);
+      animationFrame = requestAnimationFrame(() => {
+        document.querySelectorAll('.floating-shape .move-with-mouse').forEach((el, i) => {
+          const offset = (i + 1) * 10;
+          el.style.transform = `translate(${e.clientX / offset}px, ${e.clientY / offset}px)`;
+        });
       });
     };
+
     window.addEventListener('mousemove', handleMouseMove);
 
     return () => {
       sections.forEach((section) => observer.unobserve(section));
       window.removeEventListener('mousemove', handleMouseMove);
+      cancelAnimationFrame(animationFrame);
     };
   }, []);
 
@@ -56,15 +64,21 @@ export default function Home() {
       </header>
 
       <section className="hero">
-      <div className="floating-shape star-1">
-  <img src="/images/star.png" alt="star" />
-</div>
-<div className="floating-shape star-2">
-  <img src="/images/star.png" alt="star" />
-</div>
-<div className="floating-shape star-3">
-  <img src="/images/star.png" alt="star" />
-</div>
+        <div className="floating-shape star-1">
+          <div className="move-with-mouse">
+            <img src="/images/star.png" alt="star" />
+          </div>
+        </div>
+        <div className="floating-shape star-2">
+          <div className="move-with-mouse">
+            <img src="/images/star.png" alt="star" />
+          </div>
+        </div>
+        <div className="floating-shape star-3">
+          <div className="move-with-mouse">
+            <img src="/images/star.png" alt="star" />
+          </div>
+        </div>
 
 
         <h1 className="fade-in-title glow-text">Awaken Wonder. Inspire Change</h1>
