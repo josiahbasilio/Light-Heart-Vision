@@ -66,7 +66,7 @@ export default function Home() {
       </ul>
 
       <div className="nav-right">
-        <Link href="/signin" className="signInLink">
+        <Link href="/signUp" className="signInLink">
           <button className="signIn">
             <span className="icon">👤</span>
             <span className="label">Sign In</span>
