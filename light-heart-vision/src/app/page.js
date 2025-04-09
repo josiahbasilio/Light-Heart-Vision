@@ -1,65 +1,78 @@
   'use client';
 
-  import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
-  export default function Home() {
-    const [videoVisible, setVideoVisible] = useState(false);
-    const [showModal, setShowModal] = useState(false);
-  
-    const showVideo = () => setVideoVisible(true);
-    const toggleModal = () => setShowModal(!showModal); 
-    useEffect(() => {
-      const sections = document.querySelectorAll('.section');
-  
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          } else {
-            entry.target.classList.remove('visible');
-          }
-        });
-      }, {
-        threshold: 0.5, // Trigger animation when 50% of the section is in view
+export default function Home() {
+  const [videoVisible, setVideoVisible] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  const showVideo = () => setVideoVisible(true);
+  const toggleModal = () => setShowModal(!showModal);
+
+  useEffect(() => {
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible');
+        }
       });
-  
-      sections.forEach((section) => {
-        section.classList.add('animate-on-scroll');
-        observer.observe(section);
+    }, { threshold: 0.5 });
+
+    sections.forEach((section) => {
+      section.classList.add('animate-on-scroll');
+      observer.observe(section);
+    });
+
+    const handleMouseMove = (e) => {
+      document.querySelectorAll('.floating-shape').forEach((el, i) => {
+        const offset = (i + 1) * 10;
+        el.style.transform = `translate(${e.clientX / offset}px, ${e.clientY / offset}px)`;
       });
-  
-      return () => {
-        sections.forEach((section) => {
-          observer.unobserve(section);
-        });
-      };
-    }, []);
+    };
+    window.addEventListener('mousemove', handleMouseMove);
 
-    return (
-      <div>
-        <header>
-          <nav>
-            <ul>
-              <li><a href="/hub">Community</a></li>
-              <li><a href="#courses">Courses</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#membership">Membership</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </nav>
-        </header>
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
 
-        <section className="hero">
-          <div className="floating-shape"></div>
-          <div className="floating-shape"></div>
-          <div className="floating-shape"></div>
-          <h1>Awaken Wonder. Inspire Change…</h1>
-          <p>Connect ~ Community ~ Co-Creation</p>
-          <button className="cta-button" onClick={toggleModal}>Join the Vision</button>
-        </section>
+  return (
+    <div>
+      <header>
+        <nav>
+          <ul>
+            <li><a href="/hub">Community</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact">Sign Up</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <section className="hero">
+      <div className="floating-shape star-1">
+  <img src="/images/star.png" alt="star" />
+</div>
+<div className="floating-shape star-2">
+  <img src="/images/star.png" alt="star" />
+</div>
+<div className="floating-shape star-3">
+  <img src="/images/star.png" alt="star" />
+</div>
 
 
-         {/* Modal Popup */}
+        <h1 className="fade-in-title glow-text">Awaken Wonder. Inspire Change</h1>
+        <p className="fade-in-text">Connect ~ Community ~ Co-Creation</p>
+        <button className="cta-button fade-in-btn" onClick={toggleModal}>Join the Vision</button>
+      </section>
+
+      {/* Modal Popup */}
       {showModal && (
         <div className="modal-overlay" onClick={toggleModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -78,23 +91,32 @@
         </div>
       )}
 
-        <section className="section video-section" id="about">
-          <h2>Welcome to Light Heart Vision</h2>
-          <p>We bring conscious creators together to imagine and build a better world.</p>
-          <div className="video-placeholder" onClick={showVideo}>
-            ▶ Click to play intro video
+      <section className="section video-section" id="about">
+        <h2>Welcome to Light Heart Vision</h2>
+        <p>We bring conscious creators together to imagine and build a better world.</p>
+        <div className="video-placeholder" onClick={showVideo}>
+          ▶ Click to play intro video
+        </div>
+        {videoVisible && (
+          <div id="video-container" style={{ marginTop: '20px' }}>
+            <iframe
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              style={{
+                width: '90%',
+                maxWidth: '640px',
+                height: '360px',
+                border: 'none',
+                borderRadius: '10px'
+              }}
+            ></iframe>
           </div>
-          {videoVisible && (
-            <div id="video-container" style={{ marginTop: '20px' }}>
-              <iframe
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
-                allow="autoplay; encrypted-media"
-                allowFullScreen
-                style={{ width: '90%', maxWidth: '640px', height: '360px', border: 'none', borderRadius: '10px' }}
-              ></iframe>
-            </div>
-          )}
-        </section>
+        )}
+      </section>
+
+    
+
 
         <section className="section featured-content">
   <h2>Featured Content</h2>
@@ -157,5 +179,5 @@
 
         <button className="scroll-top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>↑</button>
       </div>
-    );
+    );  
   }

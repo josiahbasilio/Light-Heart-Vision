@@ -9,6 +9,60 @@ html, body {
   background: #f8f9fa;
 }
 
+/*Awken Wonder*/
+.fade-in-title {
+  opacity: 0;
+  animation: fadeInTitle 1.5s ease-in-out forwards;
+}
+
+.fade-in-text {
+  opacity: 0;
+  animation: fadeInText 2s ease-in-out forwards;
+  animation-delay: 0.3s;
+}
+
+.fade-in-btn {
+  opacity: 0;
+  animation: fadeInText 2.5s ease-in-out forwards;
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInTitle {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.glow-text {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4),
+               0 0 20px rgba(244, 197, 66, 0.3),
+               0 0 30px rgba(244, 197, 66, 0.2);
+  transition: text-shadow 0.3s ease-in-out;
+}
+
+.glow-text:hover {
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.6),
+               0 0 25px rgba(244, 197, 66, 0.4),
+               0 0 40px rgba(244, 197, 66, 0.3);
+}
+
+
 /* Header & Navigation */
 header {
   background: white;
@@ -49,11 +103,43 @@ nav a:hover::after {
   transform: scaleX(1);
 }
 
+/*star*/
+.floating-shape {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  animation: float 8s ease-in-out infinite alternate, twinkle 2s ease-in-out infinite;
+  z-index: 1;
+}
+
+.floating-shape img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.star-1 { top: 20%; left: 10%; animation-delay: 0s; }
+.star-2 { top: 50%; left: 80%; animation-delay: 1s; }
+.star-3 { top: 75%; left: 25%; animation-delay: 2s; }
+
+@keyframes float {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-30px) scale(1.1); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+
+
+
 /* Hero Section */
 .hero {
   height: 100vh;
   background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7)),
-            url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80') no-repeat center/cover;
+  url('/images/landing_page.png') no-repeat center/cover;
   color: white;
   display: flex;
   flex-direction: column;
