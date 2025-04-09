@@ -50,18 +50,32 @@ export default function Home() {
   }, []);
 
   return (
+    
     <div>
       <header>
-        <nav>
-          <ul>
-            <li><a href="/hub">Community</a></li>
-            <li><a href="#courses">Courses</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#events">Events</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#contact">Sign Up</a></li>
-          </ul>
-        </nav>
+      <nav className="nav-bar">
+    <div className="nav-inner">
+      <div className="nav-left" />
+      
+      <ul className="nav-center">
+        <li><a href="/hub">Community</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+
+      <div className="nav-right">
+        <Link href="/signin" className="signInLink">
+          <button className="signIn">
+            <span className="icon">👤</span>
+            <span className="label">Sign In</span>
+          </button>
+        </Link>
+      </div>
+    </div>
+  </nav>
+
       </header>
 
       <section className="hero">
@@ -162,7 +176,7 @@ export default function Home() {
 
 
         <section className="section" id="community">
-          <h2>Explore Our Universe</h2>
+          <h2>🦋 Explore Our Universe 🦋</h2>
           <div className="card-container">
             
             <div className="flip-card">
