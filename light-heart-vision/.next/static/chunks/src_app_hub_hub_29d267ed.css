@@ -1,50 +1,90 @@
 /* [project]/src/app/hub/hub.css [app-client] (css) */
+.hub-nav-bar {
+  background: #fff;
+  border-radius: 1.25rem;
+  padding: 1rem 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 20px #0000000f;
+  display: flex;
+  justify-content: center;
+}
+
+.hub-nav-inner {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.hub-nav-center {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  flex: 1;
+}
+
+.hub-nav-center li a {
+  text-decoration: none;
+  color: #1f2937;
+  font-weight: 500;
+  transition: color .2s;
+}
+
+.hub-nav-center li a:hover {
+  color: #f59e0b;
+}
+
+.hub-nav-right {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hub-signIn {
+  background: #f3f4f6;
+  border: none;
+  padding: .5rem 1rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.hub-signIn:hover {
+  background: #e5e7eb;
+}
+
 .hub-wrapper {
   min-height: 100vh;
-  background: linear-gradient(#fdf2f8, #eef2ff);
+  background: linear-gradient(#fff6e9, #ffe4e1);
   font-family: Segoe UI, sans-serif;
   padding: 1.5rem;
   color: #333;
 }
 
-.hub-topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  backdrop-filter: blur(8px);
-  background-color: #ffffff8c;
-  padding: 1rem 2rem;
-  border-radius: 16px;
-  margin-bottom: 2rem;
-  box-shadow: 0 4px 20px #0000000d;
-}
-
-.hub-brand {
-  font-size: 1.3rem;
-  font-weight: bold;
-}
-
-.hub-nav-icons {
-  display: flex;
-  gap: 1.5rem;
-  font-weight: 500;
-  color: #4b5563;
-}
-
 .hub-header {
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin: 0 auto 1.5rem;
 }
 
 .hub-header h1 {
   font-size: 2.75rem;
   font-weight: 700;
   color: #1e293b;
+  margin: 0;
 }
 
 .hub-subtitle {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: #475569;
+  margin-top: .25rem;
 }
 
 .hub-breadcrumb {
@@ -63,6 +103,38 @@
 .hub-link:hover {
   text-decoration: underline;
   text-shadow: 0 0 5px #7c3aed66;
+}
+
+.hub-search-container {
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+.hub-search-container input {
+  flex: 1;
+  padding: .75rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+}
+
+.hub-search-container button {
+  padding: .75rem 1.25rem;
+  border: none;
+  border-radius: 9999px;
+  background: #f4c542;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s;
+}
+
+.hub-search-container button:hover {
+  background: #7c3aed;
 }
 
 .hub-buttons {
@@ -84,7 +156,7 @@
 }
 
 .hub-buttons .active {
-  background-color: #8b5cf6;
+  background: #f4c542;
   color: #fff;
 }
 
@@ -92,10 +164,13 @@
   background-color: #7c3aed;
 }
 
-.hub-buttons .disabled {
+.hub-buttons .secondary {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.hub-buttons .secondary:hover {
   background-color: #e5e7eb;
-  color: #9ca3af;
-  cursor: not-allowed;
 }
 
 .hub-grid {

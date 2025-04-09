@@ -28,38 +28,54 @@ export default function Hub() {
 
   return (
     <div className="hub-wrapper">
-      {/* Header */}
-      <div className="hub-topbar">
-        <div className="hub-brand">🌱 Community</div>
-        <div className="hub-nav-icons">
-          <span className="hub-login">Log In</span>
-          <span className="hub-menu">☰</span>
+      {/* 🌐 Navigation bar */}
+      <nav className="hub-nav-bar">
+        <div className="hub-nav-inner">
+          <ul className="hub-nav-center">
+            <li><Link href="/hub">Community</Link></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+          <div className="hub-nav-right">
+            <Link href="/signin">
+              <button className="hub-signIn">
+                <span className="icon">👤</span>
+                <span className="label">Sign In</span>
+              </button>
+            </Link>
+          </div>
         </div>
-      </div>
+      </nav>
 
-      {/* Hero */}
-      <header className="hub-header">
+      {/* 🧭 Title  */}
+      <div className="hub-header">
         <h1>Community Hub</h1>
         <p className="hub-subtitle">Search. Share. Support.</p>
-      </header>
-
-      {/* Breadcrumb */}
-      <div className="hub-breadcrumb">
-        <span>You are here → </span>
-        <Link href="/" className="hub-link">Home</Link>
-        <span> / Community Hub</span>
       </div>
 
-      {/* Tabs */}
+      {/* 🧭 Link */}
+      <div className="hub-breadcrumb">
+        You are here → <Link href="/" className="hub-link">Home</Link> / Community Hub
+      </div>
+
+      {/* 🔍 Search bar */}
+      <div className="hub-search-container">
+        <input type="text" placeholder="Search all content" />
+        <button>🔍</button>
+      </div>
+
+      {/* 📌 Tabs */}
       <section className="hub-buttons">
         <button className="active">❓ FAQs</button>
-        <button className="disabled" disabled>Help Categories</button>
+        <button className="secondary">📂 Help Categories</button>
       </section>
 
-      {/* Interactive Cards */}
+      {/* 🪄 Cards */}
       <section className="hub-grid">
         {categories.map((cat, idx) => (
-          <div key={idx} className="hub-card interactive">
+          <div key={idx} className="hub-card">
             <div className="hub-icon">{cat.icon}</div>
             <h3>{cat.title}</h3>
             <p className="hub-desc">{cat.desc}</p>
