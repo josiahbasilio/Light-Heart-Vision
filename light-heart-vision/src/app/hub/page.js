@@ -23,12 +23,13 @@ export default function Hub() {
       icon: '🧘‍♀️',
       title: 'Mindful Living',
       desc: 'Discover practices for peace, wellness, and connection.',
+      href: '/hub/mindful-living',  // This is important
     },
   ];
 
   return (
     <div className="hub-wrapper">
-      {/* 🌐 Navigation bar */}
+      {/* Navigation Bar */}
       <nav className="hub-nav-bar">
         <div className="hub-nav-inner">
           <ul className="hub-nav-center">
@@ -49,37 +50,39 @@ export default function Hub() {
         </div>
       </nav>
 
-      {/* 🧭 Title  */}
+      {/* Title */}
       <div className="hub-header">
         <h1>Community Hub</h1>
         <p className="hub-subtitle">Search. Share. Support.</p>
       </div>
 
-      {/* 🧭 Link */}
+      {/* Breadcrumb */}
       <div className="hub-breadcrumb">
         You are here → <Link href="/" className="hub-link">Home</Link> / Community Hub
       </div>
 
-      {/* 🔍 Search bar */}
+      {/* Search */}
       <div className="hub-search-container">
         <input type="text" placeholder="Search all content" />
         <button>🔍</button>
       </div>
 
-      {/* 📌 Tabs */}
+      {/* Tabs */}
       <section className="hub-buttons">
         <button className="active">❓ FAQs</button>
         <button className="secondary">📂 Help Categories</button>
       </section>
 
-      {/* 🪄 Cards */}
+      {/* Cards */}
       <section className="hub-grid">
         {categories.map((cat, idx) => (
-          <div key={idx} className="hub-card">
-            <div className="hub-icon">{cat.icon}</div>
-            <h3>{cat.title}</h3>
-            <p className="hub-desc">{cat.desc}</p>
-          </div>
+          <Link key={idx} href={cat.href || '#'} className="hub-card-link">
+            <div className="hub-card">
+              <div className="hub-icon">{cat.icon}</div>
+              <h3>{cat.title}</h3>
+              <p className="hub-desc">{cat.desc}</p>
+            </div>
+          </Link>
         ))}
       </section>
     </div>

@@ -223,5 +223,15 @@
   box-shadow: 0 12px 32px #0000001a;
 }
 
+.hub-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.hub-card-link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
 
 /*# sourceMappingURL=src_app_hub_hub_29d267ed.css.map*/
