@@ -1,116 +1,139 @@
-.signup-page {
-    position: relative;
+.signUp-page {
     min-height: 100vh;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 2rem;
-    overflow: hidden;
-    background: radial-gradient(ellipse at center, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    margin: 0;
+    background: linear-gradient(to bottom, #fff6e9, #ffe4e1);
     font-family: 'Segoe UI', sans-serif;
-    color: #fff;
+    box-sizing: border-box;
+    animation: fadeInBg 1s ease-in-out;
   }
   
-  .stars {
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    background: transparent url('/stars.png') repeat;
-    animation: moveStars 60s linear infinite;
-    z-index: 0;
-    opacity: 0.3;
-  }
-  
-  @keyframes moveStars {
-    from { transform: translate(0, 0); }
-    to { transform: translate(-500px, -500px); }
-  }
-  
-  .planet {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    animation: floatPlanet 10s ease-in-out infinite alternate;
-    opacity: 0.7;
-    z-index: 1;
-  }
-  
-  .planet.planet1 { top: 10%; left: 5%; }
-  .planet.planet2 { bottom: 10%; right: 8%; animation-delay: 2s; }
-  .planet.planet3 { top: 25%; right: 15%; animation-delay: 4s; }
-  
-  @keyframes floatPlanet {
-    0% { transform: translateY(0) rotate(0deg); }
-    100% { transform: translateY(-15px) rotate(360deg); }
+  @keyframes fadeInBg {
+    from {
+      opacity: 0;
+      transform: scale(0.97);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
   
   .signup-container {
-    position: relative;
-    z-index: 2;
-    background-color: rgba(255, 255, 255, 0.06);
+    background-color: #ffffffee;
     backdrop-filter: blur(12px);
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
-    max-width: 400px;
+    padding: 3rem 2.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    max-width: 420px;
     width: 100%;
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid #fce6d9;
+    animation: slideIn 0.6s ease-out;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   
   .signup-container h1 {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-    color: #b4f0ff;
+    font-size: 2rem;
+    margin-bottom: 0.3rem;
+    color: #333;
   }
   
   .signup-container p {
-    font-size: 0.9rem;
-    color: #ccc;
-    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 2rem;
   }
   
-  .signup-container input {
+  /* Floating label container */
+  .input-group {
+    position: relative;
+    margin-bottom: 1.4rem;
+  }
+  
+  .input-group input {
     width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border: none;
-    border-radius: 0.5rem;
+    padding: 1rem 0.75rem 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 0.6rem;
     font-size: 1rem;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #fff;
+    background-color: #fff;
+    color: #333;
+    transition: all 0.3s ease;
+  }
+  
+  .input-group input:focus {
+    border-color: #fbbf24;
+    box-shadow: 0 0 0 3px #fcd34d66;
     outline: none;
   }
   
-  .signup-container input::placeholder {
-    color: #bbb;
+  .input-group label {
+    position: absolute;
+    left: 0.75rem;
+    top: 1rem;
+    color: #999;
+    font-size: 0.95rem;
+    pointer-events: none;
+    transition: all 0.2s ease;
   }
   
-  .signup-container input:focus {
-    background-color: rgba(255, 255, 255, 0.2);
+  .input-group input:focus + label,
+  .input-group input:not(:placeholder-shown) + label {
+    top: -0.5rem;
+    left: 0.65rem;
+    font-size: 0.75rem;
+    background: #fff6e9;
+    padding: 0 0.4rem;
+    color: #fbbf24;
+    border-radius: 0.25rem;
   }
   
   .signup-container button {
-    background: linear-gradient(90deg, #00ffe7, #00bfff);
+    background: linear-gradient(90deg, #fcd34d, #fbbf24);
     color: #000;
-    padding: 0.75rem;
+    padding: 0.85rem;
     width: 100%;
     border: none;
-    border-radius: 0.5rem;
+    border-radius: 0.6rem;
     font-weight: bold;
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
+    margin-top: 0.3rem;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
   }
   
   .signup-container button:hover {
-    background: linear-gradient(90deg, #00bfff, #00ffe7);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(90deg, #fbbf24, #fcd34d);
   }
   
   .signup-container .message {
     margin-top: 1rem;
     font-size: 0.9rem;
-    color: #0aff9d;
+    color: #0c9;
   }
   
+  .feedback {
+    font-size: 0.85rem;
+    margin-top: -0.5rem;
+    margin-bottom: 0.8rem;
+    color: #444;
+    text-align: left;
+  }
   
