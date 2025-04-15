@@ -1,7 +1,9 @@
 'use client';
 
-import Link from 'next/link';
+import Link from 'next/link'; // Make sure Link is imported
 import { useState, useEffect } from 'react';
+
+// Assuming your CSS file is correctly imported, e.g., import './Home.css';
 
 export default function Home() {
   // ---------------------
@@ -59,7 +61,7 @@ export default function Home() {
   // ---------------------
   return (
     <div>
-      {/* ---------------- Header Navigation ---------------- */}
+      {/* ---------------- Header Navigation (UPDATED) ---------------- */}
       <header>
         <nav className="nav-bar">
           <div className="nav-inner">
@@ -72,12 +74,14 @@ export default function Home() {
               <li><a href="#contact">Contact Us</a></li>
             </ul>
             <div className="nav-right">
-              <Link href="/signin" className="signInLink">
-                <button className="signIn">
-                  <span className="icon">👤</span>
-                  <span className="label">Sign In</span>
+              {/* --- Changed Link and Button Below --- */}
+              <Link href="/signUp" className="signUpLink"> {/* Changed href */}
+                <button className="signUpButton"> {/* Changed class name (optional) */}
+                  <span className="icon">✨</span> {/* Changed icon (optional) */}
+                  <span className="label">Sign Up</span> {/* Changed label */}
                 </button>
               </Link>
+              {/* --- End of Changes --- */}
             </div>
           </div>
         </nav>
@@ -132,7 +136,7 @@ export default function Home() {
         ) : (
           <div id="video-container" style={{ marginTop: '20px' }}>
             <iframe
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" // Consider a real placeholder video :)
               allow="autoplay; encrypted-media"
               allowFullScreen
               style={{
@@ -142,6 +146,7 @@ export default function Home() {
                 border: 'none',
                 borderRadius: '10px'
               }}
+              title="Intro Video" // Added title for accessibility
             ></iframe>
           </div>
         )}
@@ -161,6 +166,7 @@ export default function Home() {
             <div className="card-title">Events</div>
           </div>
 
+          {/* Ensure Link wraps the clickable element for navigation */}
           <Link href="/hub">
             <div className="card">
               <img src="/images/community.png" alt="Community" />
@@ -207,16 +213,17 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ---------------- Subscription Section ---------------- */}
       <section className="about-section subscribe">
-  <div className="subscribe-box">
-    <h2>Let’s Stay Connected 📬</h2>
-    <p>Join our love-letter to the future. Get updates, stories, and joyful inspiration.</p>
-    <form onSubmit={(e) => { e.preventDefault(); alert('Thanks for subscribing! 💌'); }}>
-      <input type="email" placeholder="Your email address" required />
-      <button type="submit">Subscribe</button>
-    </form>
-  </div>
-</section>
+        <div className="subscribe-box">
+          <h2>Let’s Stay Connected 📬</h2>
+          <p>Join our love-letter to the future. Get updates, stories, and joyful inspiration.</p>
+          <form onSubmit={(e) => { e.preventDefault(); alert('Thanks for subscribing! 💌'); }}>
+            <input type="email" placeholder="Your email address" required />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </section>
 
       {/* Footer */}
       <footer className="about-footer">
@@ -227,6 +234,7 @@ export default function Home() {
       <button
         className="scroll-top"
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Scroll to top" // Added aria-label for accessibility
       >
         ↑
       </button>

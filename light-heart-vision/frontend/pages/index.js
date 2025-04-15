@@ -1,7 +1,7 @@
 // pages/index.js
 
 import Head from 'next/head';
-import '../styles/globals.css'; // Now using global styles
+import '../globals.css'; // Now using global styles
 
 export default function Home() {
   return (
