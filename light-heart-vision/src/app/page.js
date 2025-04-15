@@ -61,31 +61,6 @@ export default function Home() {
     <div>
       {/* ---------------- Header Navigation ---------------- */}
       <header>
-<<<<<<< Updated upstream
-      <nav className="nav-bar">
-    <div className="nav-inner">
-      <div className="nav-left" />
-      
-      <ul className="nav-center">
-        <li><a href="/hub">Community</a></li>
-        <li><a href="#courses">Courses</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#events">Events</a></li>
-        <li><a href="#contact">Contact Us</a></li>
-      </ul>
-
-      <div className="nav-right">
-        <Link href="/signUp" className="signInLink">
-          <button className="signIn">
-            <span className="icon">👤</span>
-            <span className="label">Sign In</span>
-          </button>
-        </Link>
-      </div>
-    </div>
-  </nav>
-
-=======
         <nav className="nav-bar">
           <div className="nav-inner">
             <div className="nav-left" />
@@ -106,7 +81,6 @@ export default function Home() {
             </div>
           </div>
         </nav>
->>>>>>> Stashed changes
       </header>
 
       {/* ---------------- Hero Section ---------------- */}
@@ -235,7 +209,7 @@ export default function Home() {
 
       <section className="about-section subscribe">
   <div className="subscribe-box">
-    <h2>Stay in the Loop 🌈</h2>
+    <h2>Let’s Stay Connected 📬</h2>
     <p>Join our love-letter to the future. Get updates, stories, and joyful inspiration.</p>
     <form onSubmit={(e) => { e.preventDefault(); alert('Thanks for subscribing! 💌'); }}>
       <input type="email" placeholder="Your email address" required />
