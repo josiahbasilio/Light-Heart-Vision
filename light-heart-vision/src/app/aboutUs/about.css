@@ -1,0 +1,281 @@
+.about-wrapper {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #fffaf5, #fbe4ef);
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* 🌟 Hero Section */
+.about-intro {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  background: linear-gradient(to right, #ffe9e4, #fff3f7);
+  gap: 40px;
+  border-radius: 0 0 60px 60px;
+}
+
+.intro-content {
+  max-width: 500px;
+}
+
+.intro-content h1 {
+  font-size: 3rem;
+  color: #b3477a;
+  margin-bottom: 16px;
+}
+
+.intro-content p {
+  font-size: 1.2rem;
+  color: #5e2d3e;
+}
+
+.intro-image img {
+  max-width: 300px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* 🔍 Who We Are Section */
+.who-we-are {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 60px 20px;
+  justify-content: center;
+  background: #fff;
+}
+
+.text-box {
+  max-width: 400px;
+}
+
+.text-box h2 {
+  font-size: 2rem;
+  color: #c54275;
+  margin-bottom: 12px;
+}
+
+.text-box p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* 🌈 Features Grid */
+.features-grid {
+  padding: 60px 20px;
+  background: #fffaf7;
+  text-align: center;
+}
+
+.features-grid h2 {
+  font-size: 2.2rem;
+  color: #cc3377;
+  margin-bottom: 40px;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.feature-card {
+  background: #fff;
+  border: 2px solid #ffe3ee;
+  padding: 20px;
+  width: 260px;
+  border-radius: 18px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card img {
+  width: 50px;
+  margin-bottom: 15px;
+}
+
+.feature-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  color: #aa2961;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* 🧑‍🤝‍🧑 Team Section */
+.team-showcase {
+  background: #fdf0f5;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.team-showcase h2 {
+  font-size: 2.2rem;
+  color: #bb3a6f;
+  margin-bottom: 40px;
+}
+
+.team-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.team-member img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.team-member img:hover {
+  transform: scale(1.05);
+}
+
+.team-member h4 {
+  font-size: 1.2rem;
+  color: #802a5a;
+  margin-top: 15px;
+}
+
+.team-member p {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+
+/* 👩‍🚀 Founders Section (Circular Image Only + Crossfade) */
+.founders-section {
+  padding: 60px 20px;
+  background: linear-gradient(to top, #fff5fa, #fff);
+  text-align: center;
+}
+
+.founders-section h2 {
+  font-size: 2.2rem;
+  color: #b03e70;
+  margin-bottom: 10px;
+}
+
+.founders-intro {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+.founder-card {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  margin: 0 auto;
+}
+
+/* All images stacked on top of each other */
+.founder-card img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 0;
+}
+
+/* Show the active one */
+.founder-card img.visible {
+  opacity: 1;
+  z-index: 1;
+}
+
+
+
+/* 💌 Newsletter Box */
+.newsletter-box.fancy {
+  background: #fff;
+  padding: 50px 25px;
+  margin: 60px auto;
+  max-width: 550px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+.newsletter-box h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #c94d7d;
+}
+
+.newsletter-box p {
+  color: #555;
+  font-size: 1.05rem;
+  margin-bottom: 25px;
+}
+
+.newsletter-box input {
+  padding: 12px;
+  width: 80%;
+  max-width: 300px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.newsletter-box button {
+  padding: 12px 20px;
+  background: #f68ab8;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.newsletter-box button:hover {
+  background: #e56ca3;
+}
+
+/* 🌙 Footer */
+.new-footer {
+  background: #3d3d3d;
+  color: #eee;
+  text-align: center;
+  padding: 40px 20px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  font-size: 0.95rem;
+}

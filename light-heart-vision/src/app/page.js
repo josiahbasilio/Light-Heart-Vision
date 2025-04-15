@@ -1,101 +1,235 @@
 'use client';
 
-import Image from 'next/image';
+import Link from 'next/link';
+import { useState, useEffect } from 'react';
 
 export default function Home() {
+  // ---------------------
+  // STATE
+  // ---------------------
+  const [videoVisible, setVideoVisible] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  // ---------------------
+  // EVENT HANDLERS
+  // ---------------------
+  const showVideo = () => setVideoVisible(true);
+  const toggleModal = () => setShowModal(!showModal);
+
+  // ---------------------
+  // EFFECT: Scroll animations & mouse-driven star movement
+  // ---------------------
+  useEffect(() => {
+    // Animate sections when scrolled into view
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle('visible', entry.isIntersecting);
+      });
+    }, { threshold: 0.5 });
+
+    sections.forEach((section) => {
+      section.classList.add('animate-on-scroll');
+      observer.observe(section);
+    });
+
+    // Mouse interaction for floating star movement
+    let animationFrame;
+    const handleMouseMove = (e) => {
+      if (animationFrame) cancelAnimationFrame(animationFrame);
+      animationFrame = requestAnimationFrame(() => {
+        document.querySelectorAll('.floating-shape .move-with-mouse').forEach((el, i) => {
+          const offset = (i + 1) * 10;
+          el.style.transform = `translate(${e.clientX / offset}px, ${e.clientY / offset}px)`;
+        });
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+      window.removeEventListener('mousemove', handleMouseMove);
+      cancelAnimationFrame(animationFrame);
+    };
+  }, []);
+
+  // ---------------------
+  // RENDER
+  // ---------------------
   return (
-    <div className="min-h-screen flex flex-col justify-between items-center bg-[#f8f9fa] text-[#222] font-sans px-6 py-10 sm:px-16">
-      {/* Header */}
-      <header className="fixed top-0 w-full bg-white shadow-md z-50 py-4">
-        <nav className="flex justify-center gap-10 text-sm sm:text-base font-semibold">
-          <a href="#community" className="hover:text-yellow-600 transition">Community</a>
-          <a href="#courses" className="hover:text-yellow-600 transition">Courses</a>
-          <a href="#about" className="hover:text-yellow-600 transition">About</a>
-          <a href="#membership" className="hover:text-yellow-600 transition">Membership</a>
-          <a href="#contact" className="hover:text-yellow-600 transition">Contact</a>
+    <div>
+      {/* ---------------- Header Navigation ---------------- */}
+      <header>
+        <nav className="nav-bar">
+          <div className="nav-inner">
+            <div className="nav-left" />
+            <ul className="nav-center">
+              <li><a href="/hub">Community</a></li>
+              <li><a href="#courses">Courses</a></li>
+              <li><a href="/aboutUs">About</a></li>
+              <li><a href="#events">Events</a></li>
+              <li><a href="#contact">Contact Us</a></li>
+            </ul>
+            <div className="nav-right">
+              <Link href="/signin" className="signInLink">
+                <button className="signIn">
+                  <span className="icon">👤</span>
+                  <span className="label">Sign In</span>
+                </button>
+              </Link>
+            </div>
+          </div>
         </nav>
       </header>
 
-      {/* Hero Section */}
-      <section className="w-full text-center flex flex-col justify-center items-center pt-32 pb-20">
-        <h1 className="text-4xl sm:text-5xl font-bold mb-4">Awaken Wonder. Inspire Change.</h1>
-        <p className="text-lg sm:text-xl text-gray-600 mb-6">Connect ~ Community ~ Co-Creation</p>
-        <a
-          href="#newsletter"
-          className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 px-6 rounded-full transition"
-        >
-          Join the Vision
-        </a>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="w-full max-w-3xl text-center mb-20">
-        <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Welcome to Light Heart Vision</h2>
-        <p className="mb-6 text-gray-700">
-          We bring conscious creators together to imagine and build a better world.
-        </p>
-        <div className="aspect-w-16 aspect-h-9 w-full max-w-xl mx-auto rounded-lg overflow-hidden shadow-lg">
-          <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            title="Intro Video"
-            allowFullScreen
-            className="w-full h-full"
-          ></iframe>
-        </div>
-      </section>
-
-      {/* Community Cards */}
-      <section id="community" className="text-center max-w-5xl mb-20 px-4">
-        <h2 className="text-2xl sm:text-3xl font-semibold mb-10">Explore Our Universe</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          {[
-            { title: '🌍 Our Story', desc: 'Meet the hearts behind the vision and why we started.' },
-            { title: '🎨 Creative Collabs', desc: 'Art jams, virtual circles, and co-creation magic await!' },
-            { title: '🌱 Events & Retreats', desc: 'Join us in sacred spaces for deep connection & growth.' },
-          ].map((card, i) => (
-            <div
-              key={i}
-              className="bg-white shadow-md rounded-xl p-6 hover:shadow-lg transition transform hover:-translate-y-1"
-            >
-              <h3 className="text-xl font-semibold mb-2">{card.title}</h3>
-              <p className="text-gray-600">{card.desc}</p>
+      {/* ---------------- Hero Section ---------------- */}
+      <section className="hero">
+        {/* Animated Stars */}
+        {['star-1', 'star-2', 'star-3'].map((star, i) => (
+          <div key={i} className={`floating-shape ${star}`}>
+            <div className="move-with-mouse">
+              <img src="/images/star.png" alt="star" />
             </div>
-          ))}
+          </div>
+        ))}
+
+        {/* Main Hero Text */}
+        <h1 className="fade-in-title glow-text">Awaken Wonder. Inspire Change</h1>
+        <p className="fade-in-text">Connect ~ Community ~ Co-Creation</p>
+        <button className="cta-button fade-in-btn" onClick={toggleModal}>
+          Join the Vision
+        </button>
+      </section>
+
+      {/* ---------------- Modal Popup ---------------- */}
+      {showModal && (
+        <div className="modal-overlay" onClick={toggleModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <h2>✨ Join the Vision</h2>
+            <p>Subscribe to stay connected with Light Heart Vision!</p>
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              alert("You're in! 🌟");
+              setShowModal(false);
+            }}>
+              <input type="email" placeholder="Your email" required />
+              <button type="submit">Let's Go!</button>
+            </form>
+            <button className="close-modal" onClick={toggleModal}>×</button>
+          </div>
+        </div>
+      )}
+
+      {/* ---------------- About / Video Section ---------------- */}
+      <section className="section video-section" id="about">
+        <h2>Welcome to Light Heart Vision</h2>
+        <p>We bring conscious creators together to imagine and build a better world.</p>
+        {!videoVisible ? (
+          <div className="video-placeholder" onClick={showVideo}>
+            ▶ Click to play intro video
+          </div>
+        ) : (
+          <div id="video-container" style={{ marginTop: '20px' }}>
+            <iframe
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              style={{
+                width: '90%',
+                maxWidth: '640px',
+                height: '360px',
+                border: 'none',
+                borderRadius: '10px'
+              }}
+            ></iframe>
+          </div>
+        )}
+      </section>
+
+      {/* ---------------- Featured Content Cards ---------------- */}
+      <section className="section featured-content">
+        <h2>Featured Content</h2>
+        <div className="cards">
+          <div className="card" onClick={() => alert('Explore Courses')}>
+            <img src="/images/course.png" alt="Courses" />
+            <div className="card-title">Courses</div>
+          </div>
+
+          <div className="card" onClick={() => alert('See Upcoming Events')}>
+            <img src="/images/events.png" alt="Events" />
+            <div className="card-title">Events</div>
+          </div>
+
+          <Link href="/hub">
+            <div className="card">
+              <img src="/images/community.png" alt="Community" />
+              <div className="card-title">Community</div>
+            </div>
+          </Link>
+
+          <div className="card" onClick={() => alert('Check Out Blogs')}>
+            <img src="/images/blog.png" alt="Blog" />
+            <div className="card-title">Blog</div>
+          </div>
         </div>
       </section>
 
-      {/* Newsletter */}
-      <section
-        id="newsletter"
-        className="bg-[#fff8e1] w-full text-center py-16 px-6 mb-10 rounded-xl shadow-inner"
-      >
-        <h2 className="text-2xl font-semibold mb-6">Subscribe for Inspiration</h2>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            alert('✨ Thanks for joining the Light Heart Vision!');
-          }}
-          className="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto"
-        >
-          <input
-            type="email"
-            placeholder="Enter your email"
-            required
-            className="px-4 py-2 rounded-lg border border-gray-300 w-full"
-          />
-          <button
-            type="submit"
-            className="bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-2 rounded-lg font-medium"
-          >
-            Subscribe
-          </button>
-        </form>
+      {/* ---------------- Flip Card Section ---------------- */}
+      <section className="section" id="community">
+        <h2>🦋 Explore Our Universe 🦋</h2>
+        <div className="card-container">
+          {/* Flip Cards */}
+          <div className="flip-card">
+            <div className="flip-card-inner">
+              <div className="flip-card-front">🌍 Our Story</div>
+              <div className="flip-card-back">
+                Meet the hearts behind the vision and why we started.
+              </div>
+            </div>
+          </div>
+          <div className="flip-card">
+            <div className="flip-card-inner">
+              <div className="flip-card-front">🎨 Creative Collabs</div>
+              <div className="flip-card-back">
+                Art jams, virtual circles, and co-creation magic await!
+              </div>
+            </div>
+          </div>
+          <div className="flip-card">
+            <div className="flip-card-inner">
+              <div className="flip-card-front">🌱 Events & Retreats</div>
+              <div className="flip-card-back">
+                Join us in sacred spaces for deep connection & growth.
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
+
+      <section className="about-section subscribe">
+  <div className="subscribe-box">
+    <h2>Let’s Stay Connected 📬</h2>
+    <p>Join our love-letter to the future. Get updates, stories, and joyful inspiration.</p>
+    <form onSubmit={(e) => { e.preventDefault(); alert('Thanks for subscribing! 💌'); }}>
+      <input type="email" placeholder="Your email address" required />
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
 
       {/* Footer */}
-      <footer className="text-sm text-gray-500 py-6 text-center">
-        © {new Date().getFullYear()} Light Heart Vision. All rights reserved.
+      <footer className="about-footer">
+        <p>© 2025 Light Heart Vision. Made with love and moonlight 🌙</p>
       </footer>
+
+      {/* ---------------- Scroll-to-Top Button ---------------- */}
+      <button
+        className="scroll-top"
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      >
+        ↑
+      </button>
     </div>
   );
 }
