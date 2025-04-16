@@ -11,7 +11,7 @@ export default function MindfulLiving() {
           <ul className="hub-nav-center">
             <li><Link href="/hub">Community</Link></li>
             <li><a href="#courses">Courses</a></li>
-            <li><a href="#about">About</a></li>
+            <li><Link href="/aboutUs">About</Link></li>
             <li><a href="#events">Events</a></li>
             <li><a href="#contact">Contact Us</a></li>
           </ul>
