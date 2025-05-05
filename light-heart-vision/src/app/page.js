@@ -2,25 +2,23 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export default function Home() {
-  // ---------------------
-  // STATE
-  // ---------------------
+  // ===================================================
+  // STATE: Video & Modal Visibility
+  // ===================================================
   const [videoVisible, setVideoVisible] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-  // ---------------------
-  // EVENT HANDLERS
-  // ---------------------
   const showVideo = () => setVideoVisible(true);
   const toggleModal = () => setShowModal(!showModal);
 
-  // ---------------------
-  // EFFECT: Scroll animations & mouse-driven star movement
-  // ---------------------
+  // ===================================================
+  //  EFFECT: Scroll animations + Mouse-based float
+  // ===================================================
   useEffect(() => {
-    // Animate sections when scrolled into view
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -33,7 +31,6 @@ export default function Home() {
       observer.observe(section);
     });
 
-    // Mouse interaction for floating star movement
     let animationFrame;
     const handleMouseMove = (e) => {
       if (animationFrame) cancelAnimationFrame(animationFrame);
@@ -54,9 +51,6 @@ export default function Home() {
     };
   }, []);
 
-  // ---------------------
-  // RENDER
-  // ---------------------
   return (
     <div>
       {/* ---------------- Header Navigation ---------------- */}
@@ -82,10 +76,15 @@ export default function Home() {
           </div>
         </nav>
       </header>
+      {/* ==================================================
+          HEADER SECTION
+      ================================================== */}
+      <Header />
 
-      {/* ---------------- Hero Section ---------------- */}
+      {/* ==================================================
+          HERO SECTION WITH FLOATING STARS & CTA
+      ================================================== */}
       <section className="hero">
-        {/* Animated Stars */}
         {['star-1', 'star-2', 'star-3'].map((star, i) => (
           <div key={i} className={`floating-shape ${star}`}>
             <div className="move-with-mouse">
@@ -94,7 +93,6 @@ export default function Home() {
           </div>
         ))}
 
-        {/* Main Hero Text */}
         <h1 className="fade-in-title glow-text">Awaken Wonder. Inspire Change</h1>
         <p className="fade-in-text">Connect ~ Community ~ Co-Creation</p>
         <button className="cta-button fade-in-btn" onClick={toggleModal}>
@@ -102,7 +100,9 @@ export default function Home() {
         </button>
       </section>
 
-      {/* ---------------- Modal Popup ---------------- */}
+      {/* ==================================================
+           MODAL POPUP FOR NEWSLETTER SIGNUP
+      ================================================== */}
       {showModal && (
         <div className="modal-overlay" onClick={toggleModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -121,7 +121,9 @@ export default function Home() {
         </div>
       )}
 
-      {/* ---------------- About / Video Section ---------------- */}
+      {/* ==================================================
+           VIDEO INTRO SECTION
+      ================================================== */}
       <section className="section video-section" id="about">
         <h2>Welcome to Light Heart Vision</h2>
         <p>We bring conscious creators together to imagine and build a better world.</p>
@@ -142,12 +144,15 @@ export default function Home() {
                 border: 'none',
                 borderRadius: '10px'
               }}
+              title="Intro Video"
             ></iframe>
           </div>
         )}
       </section>
 
-      {/* ---------------- Featured Content Cards ---------------- */}
+      {/* ==================================================
+           FEATURED CONTENT CARDS
+      ================================================== */}
       <section className="section featured-content">
         <h2>Featured Content</h2>
         <div className="cards">
@@ -175,11 +180,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---------------- Flip Card Section ---------------- */}
+      {/* ==================================================
+           FLIP-CARD COMMUNITY HIGHLIGHTS
+      ================================================== */}
       <section className="section" id="community">
         <h2>🦋 Explore Our Universe 🦋</h2>
         <div className="card-container">
-          {/* Flip Cards */}
           <div className="flip-card">
             <div className="flip-card-inner">
               <div className="flip-card-front">🌍 Our Story</div>
@@ -218,15 +224,13 @@ export default function Home() {
   </div>
 </section>
 
-      {/* Footer */}
-      <footer className="about-footer">
-        <p>© 2025 Light Heart Vision. Made with love and moonlight 🌙</p>
-      </footer>
-
-      {/* ---------------- Scroll-to-Top Button ---------------- */}
+      {/* ==================================================
+          SCROLL-TO-TOP BUTTON
+      ================================================== */}
       <button
         className="scroll-top"
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Scroll to top"
       >
         ↑
       </button>
