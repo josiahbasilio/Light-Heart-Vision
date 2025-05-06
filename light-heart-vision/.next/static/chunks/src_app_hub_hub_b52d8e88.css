@@ -1,72 +1,136 @@
 /* [project]/src/app/hub/hub.css [app-client] (css) */
-.hub-nav-bar {
-  background: #fff;
-  border-radius: 1.25rem;
-  padding: 1rem 2rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 8px 20px #0000000f;
-  display: flex;
-  justify-content: center;
+header {
+  background: #fffc;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  box-shadow: 0 2px 10px #0000001a;
+  backdrop-filter: blur(10px);
 }
 
-.hub-nav-inner {
-  max-width: 1200px;
+.nav-bar {
+  display: flex;
+  justify-content: center;
+  padding: 0 2rem;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
+  max-width: 1200px;
+  padding: 0 2rem;
+}
+
+.nav-left, .nav-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-left {
+  justify-content: flex-start;
+}
+
+.nav-center {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+  gap: 25px;
+  list-style: none;
+  padding: 1rem 0;
+  margin: 0;
+  flex: 2;
+}
+
+.nav-center li a {
+  text-decoration: none;
+  color: #933;
+  font-weight: 600;
   position: relative;
 }
 
-.hub-nav-center {
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  justify-content: center;
-  flex: 1;
+.nav-center li a:after {
+  content: "";
+  display: block;
+  height: 2px;
+  background: #efc95a;
+  transform: scaleX(0);
+  transition: transform .3s;
+  transform-origin: 0;
 }
 
-.hub-nav-center li a {
+.nav-center li a:hover:after {
+  transform: scaleX(1);
+}
+
+.signInLink {
   text-decoration: none;
-  color: #1f2937;
-  font-weight: 500;
-  transition: color .2s;
 }
 
-.hub-nav-center li a:hover {
-  color: #f59e0b;
-}
-
-.hub-nav-right {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.hub-signIn {
-  background: #f3f4f6;
+.signIn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #ebcb99fe, #fedd9ff0);
+  color: #933;
   border: none;
-  padding: .5rem 1rem;
-  border-radius: 9999px;
-  font-weight: 500;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
+  box-shadow: 0 6px 18px #00000026;
+  transition: all .3s;
+  position: relative;
+  text-decoration: none;
 }
 
-.hub-signIn:hover {
-  background: #e5e7eb;
+.signIn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #fff0;
+  transition: left .5s;
 }
 
-.hub-wrapper {
-  min-height: 100vh;
-  background: linear-gradient(#fff6e9, #ffe4e1);
-  font-family: Segoe UI, sans-serif;
-  padding: 1.5rem;
-  color: #333;
+.signIn:hover:before {
+  left: 100%;
+}
+
+.signIn:hover {
+  background: linear-gradient(135deg, #bd8d8d, #f95656);
+  transform: scale(1.05);
+}
+
+.signIn:active {
+  transform: scale(.98);
+}
+
+.signIn .icon {
+  font-size: 16px;
+  transition: transform .3s;
+}
+
+.signIn:hover .icon {
+  transform: rotate(360deg);
+}
+
+.signIn .label {
+  transition: color .3s;
+}
+
+.signIn:hover .label {
+  color: #f4c542;
+}
+
+.hub-main {
+  padding-top: 100px;
 }
 
 .hub-header {
@@ -182,14 +246,16 @@
 }
 
 .hub-card {
-  background: #fff;
-  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
   padding: 2rem;
-  box-shadow: 0 8px 24px #0000000f;
+  border-radius: 20px;
+  background: #fff;
   text-align: center;
+  box-shadow: 0 8px 24px #0000000f;
   transition: transform .3s, box-shadow .3s;
-  position: relative;
-  overflow: hidden;
 }
 
 .hub-icon {
@@ -211,6 +277,8 @@
   transform: translateY(10px);
   transition: all .3s;
   pointer-events: none;
+  min-height: 3em;
+  display: block;
 }
 
 .hub-card:hover .hub-desc {
@@ -231,6 +299,78 @@
 .hub-card-link:hover {
   text-decoration: none;
   color: inherit;
+}
+
+.subscribe-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.subscribe-box {
+  background: #fff;
+  border-radius: 16px;
+  padding: 30px 25px;
+  max-width: 420px;
+  margin: 0 auto;
+  box-shadow: 0 8px 24px #00000014;
+  transition: all .3s;
+  margin-bottom: 60px;
+}
+
+.subscribe-box:hover {
+  box-shadow: 0 12px 30px #0000001a;
+  transform: translateY(-4px);
+}
+
+.subscribe-box h2 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: #933;
+}
+
+.subscribe-box p {
+  font-size: .95rem;
+  color: #555;
+  margin-bottom: 18px;
+}
+
+.subscribe-box input {
+  padding: 12px;
+  font-size: .95rem;
+  border-radius: 6px;
+  width: 100%;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.subscribe-box input:focus {
+  border-color: #f4c542;
+  box-shadow: 0 0 6px #f4c5424d;
+}
+
+.subscribe-box button {
+  background: #f4c542;
+  color: #000;
+  font-weight: 600;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: .95rem;
+  cursor: pointer;
+  transition: background .3s, transform .2s;
+}
+
+.subscribe-box button:hover {
+  background-color: #e0b000;
+  transform: scale(1.04);
+}
+
+.footer {
+  background: #333;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  font-size: .95rem;
 }
 
 /*# sourceMappingURL=src_app_hub_hub_b52d8e88.css.map*/
