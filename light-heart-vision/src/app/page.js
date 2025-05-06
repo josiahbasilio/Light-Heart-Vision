@@ -5,11 +5,20 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 export default function Home() {
+    // ---------------------
+  // STATE
+  // ---------------------
   const [videoVisible, setVideoVisible] = useState(false);
   const [showModal, setShowModal] = useState(false);
+// ---------------------
+  // EVENT HANDLERS
+  // ---------------------
 
   const showVideo = () => setVideoVisible(true);
   const toggleModal = () => setShowModal(!showModal);
+// ---------------------
+  // EFFECT: Scroll animations & mouse-driven star movement
+  // ---------------------
 
   useEffect(() => {
     const sections = document.querySelectorAll('.section');
