@@ -1,23 +1,16 @@
 'use client';
 
-import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 export default function Home() {
-  // ===================================================
-  // STATE: Video & Modal Visibility
-  // ===================================================
   const [videoVisible, setVideoVisible] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
   const showVideo = () => setVideoVisible(true);
   const toggleModal = () => setShowModal(!showModal);
 
-  // ===================================================
-  //  EFFECT: Scroll animations + Mouse-based float
-  // ===================================================
   useEffect(() => {
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver((entries) => {
@@ -53,29 +46,6 @@ export default function Home() {
 
   return (
     <div>
-      {/* ---------------- Header Navigation ---------------- */}
-      <header>
-        <nav className="nav-bar">
-          <div className="nav-inner">
-            <div className="nav-left" />
-            <ul className="nav-center">
-              <li><a href="/hub">Community</a></li>
-              <li><a href="#courses">Courses</a></li>
-              <li><a href="/aboutUs">About</a></li>
-              <li><a href="#events">Events</a></li>
-              <li><a href="#contact">Contact Us</a></li>
-            </ul>
-            <div className="nav-right">
-              <Link href="/signin" className="signInLink">
-                <button className="signIn">
-                  <span className="icon">👤</span>
-                  <span className="label">Sign In</span>
-                </button>
-              </Link>
-            </div>
-          </div>
-        </nav>
-      </header>
       {/* ==================================================
           HEADER SECTION
       ================================================== */}
@@ -166,12 +136,10 @@ export default function Home() {
             <div className="card-title">Events</div>
           </div>
 
-          <Link href="/hub">
-            <div className="card">
-              <img src="/images/community.png" alt="Community" />
-              <div className="card-title">Community</div>
-            </div>
-          </Link>
+          <div className="card" onClick={() => alert('Check Out Community')}>
+            <img src="/images/community.png" alt="Community" />
+            <div className="card-title">Community</div>
+          </div>
 
           <div className="card" onClick={() => alert('Check Out Blogs')}>
             <img src="/images/blog.png" alt="Blog" />
@@ -213,18 +181,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="about-section subscribe">
-  <div className="subscribe-box">
-    <h2>Let’s Stay Connected 📬</h2>
-    <p>Join our love-letter to the future. Get updates, stories, and joyful inspiration.</p>
-    <form onSubmit={(e) => { e.preventDefault(); alert('Thanks for subscribing! 💌'); }}>
-      <input type="email" placeholder="Your email address" required />
-      <button type="submit">Subscribe</button>
-    </form>
-  </div>
-</section>
-
-      {/* ==================================================
+          {/* ==================================================
           SCROLL-TO-TOP BUTTON
       ================================================== */}
       <button
@@ -234,6 +191,16 @@ export default function Home() {
       >
         ↑
       </button>
-    </div>
+
+      {/* ==================================================
+          FOOTER SECTION
+      ================================================== */}
+      <Footer />
+
+  </div>
+
+  
   );
+
+  
 }
