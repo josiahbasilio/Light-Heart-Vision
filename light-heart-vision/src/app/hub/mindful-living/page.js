@@ -1,49 +1,14 @@
 "use client";
 import "./mindful-living.css";
 import Link from "next/link";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function MindfulLiving() {
   return (
     <>
-      {/* Header */}
-      <header>
-        <nav className="nav-bar">
-          <div className="nav-inner">
-            <div className="nav-left" />
-
-            {/* Navigation Links */}
-            <ul className="nav-center">
-              <li>
-                <a href="/hub">Community</a>
-              </li>
-              <li>
-                <a href="#courses">Courses</a>
-              </li>
-              <li>
-                <a href="/aboutUs">About</a>
-              </li>
-              <li>
-                <a href="#events">Events</a>
-              </li>
-              <li>
-                <a href="#contact">Contact Us</a>
-              </li>
-            </ul>
-
-            {/* Sign In Button */}
-            <div className="nav-right">
-              <Link href="/signin" passHref legacyBehavior>
-                <a className="signInLink">
-                  <div className="signIn">
-                    <span className="icon">👤</span>
-                    <span className="label">Sign In</span>
-                  </div>
-                </a>
-              </Link>
-            </div>
-          </div>
-        </nav>
-      </header>
+      {/* Include Header */}
+      <Header />
 
       {/* ------- Main content ------- */}
       <main className="mindful-main">
@@ -90,33 +55,11 @@ export default function MindfulLiving() {
             Learn how to meditate here →
           </Link>
         </div>
-
-        {/* Newsletter Section */}
-        <section className="subscribe-section">
-          <div className="subscribe-box">
-            <h2>Let’s Stay Connected 📬</h2>
-            <p>
-              Join our love-letter to the future. Get updates, stories, and
-              joyful inspiration.
-            </p>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                alert("Thanks for subscribing! 💌");
-              }}
-            >
-              <input type="email" placeholder="Your email address" required />
-              <button type="submit">Subscribe</button>
-            </form>
-          </div>
-        </section>
-
-        {/* Footer Section */}
-        <footer className="footer">
-          <p>© 2025 Light Heart Vision. Made with love and moonlight 🌙</p>
-        </footer>
       </main>
       {/* ------- Main content ------- */}
+
+      {/* Include Footer */}
+      <Footer />
     </>
   );
 }
