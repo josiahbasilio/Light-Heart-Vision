@@ -1,28 +1,25 @@
 'use client';
 
-import Link from 'next/link'; // Make sure Link is imported
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
-// Assuming your CSS file is correctly imported, e.g., import './Home.css';
-
 export default function Home() {
-  // ---------------------
+    // ---------------------
   // STATE
   // ---------------------
   const [videoVisible, setVideoVisible] = useState(false);
   const [showModal, setShowModal] = useState(false);
-
-  // ---------------------
+// ---------------------
   // EVENT HANDLERS
   // ---------------------
+
   const showVideo = () => setVideoVisible(true);
   const toggleModal = () => setShowModal(!showModal);
-
-  // ---------------------
+// ---------------------
   // EFFECT: Scroll animations & mouse-driven star movement
   // ---------------------
+
   useEffect(() => {
-    // Animate sections when scrolled into view
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -35,7 +32,6 @@ export default function Home() {
       observer.observe(section);
     });
 
-    // Mouse interaction for floating star movement
     let animationFrame;
     const handleMouseMove = (e) => {
       if (animationFrame) cancelAnimationFrame(animationFrame);
@@ -56,12 +52,9 @@ export default function Home() {
     };
   }, []);
 
-  // ---------------------
-  // RENDER
-  // ---------------------
   return (
     <div>
-      {/* ---------------- Header Navigation (UPDATED) ---------------- */}
+      {/* ---------------- Header Navigation ---------------- */}
       <header>
         <nav className="nav-bar">
           <div className="nav-inner">
@@ -74,14 +67,12 @@ export default function Home() {
               <li><a href="#contact">Contact Us</a></li>
             </ul>
             <div className="nav-right">
-              {/* --- Changed Link and Button Below --- */}
-              <Link href="/signUp" className="signUpLink"> {/* Changed href */}
-                <button className="signUpButton"> {/* Changed class name (optional) */}
-                  <span className="icon">✨</span> {/* Changed icon (optional) */}
-                  <span className="label">Sign Up</span> {/* Changed label */}
+              <Link href="/signin" className="signInLink">
+                <button className="signIn">
+                  <span className="icon">👤</span>
+                  <span className="label">Sign In</span>
                 </button>
               </Link>
-              {/* --- End of Changes --- */}
             </div>
           </div>
         </nav>
@@ -89,7 +80,6 @@ export default function Home() {
 
       {/* ---------------- Hero Section ---------------- */}
       <section className="hero">
-        {/* Animated Stars */}
         {['star-1', 'star-2', 'star-3'].map((star, i) => (
           <div key={i} className={`floating-shape ${star}`}>
             <div className="move-with-mouse">
@@ -98,7 +88,6 @@ export default function Home() {
           </div>
         ))}
 
-        {/* Main Hero Text */}
         <h1 className="fade-in-title glow-text">Awaken Wonder. Inspire Change</h1>
         <p className="fade-in-text">Connect ~ Community ~ Co-Creation</p>
         <button className="cta-button fade-in-btn" onClick={toggleModal}>
@@ -106,7 +95,9 @@ export default function Home() {
         </button>
       </section>
 
-      {/* ---------------- Modal Popup ---------------- */}
+      {/* ==================================================
+           MODAL POPUP FOR NEWSLETTER SIGNUP
+      ================================================== */}
       {showModal && (
         <div className="modal-overlay" onClick={toggleModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -118,14 +109,16 @@ export default function Home() {
               setShowModal(false);
             }}>
               <input type="email" placeholder="Your email" required />
-              <button type="submit">Let's Go!</button>
+              <button type="submit">Let&apos;s Go!</button>
             </form>
             <button className="close-modal" onClick={toggleModal}>×</button>
           </div>
         </div>
       )}
 
-      {/* ---------------- About / Video Section ---------------- */}
+      {/* ==================================================
+           VIDEO INTRO SECTION
+      ================================================== */}
       <section className="section video-section" id="about">
         <h2>Welcome to Light Heart Vision</h2>
         <p>We bring conscious creators together to imagine and build a better world.</p>
@@ -146,13 +139,14 @@ export default function Home() {
                 border: 'none',
                 borderRadius: '10px'
               }}
-              title="Intro Video" // Added title for accessibility
             ></iframe>
           </div>
         )}
       </section>
 
-      {/* ---------------- Featured Content Cards ---------------- */}
+      {/* ==================================================
+           FEATURED CONTENT CARDS
+      ================================================== */}
       <section className="section featured-content">
         <h2>Featured Content</h2>
         <div className="cards">
@@ -166,7 +160,6 @@ export default function Home() {
             <div className="card-title">Events</div>
           </div>
 
-          {/* Ensure Link wraps the clickable element for navigation */}
           <Link href="/hub">
             <div className="card">
               <img src="/images/community.png" alt="Community" />
@@ -181,11 +174,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---------------- Flip Card Section ---------------- */}
+      {/* ==================================================
+           FLIP-CARD COMMUNITY HIGHLIGHTS
+      ================================================== */}
       <section className="section" id="community">
         <h2>🦋 Explore Our Universe 🦋</h2>
         <div className="card-container">
-          {/* Flip Cards */}
           <div className="flip-card">
             <div className="flip-card-inner">
               <div className="flip-card-front">🌍 Our Story</div>
@@ -213,17 +207,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---------------- Subscription Section ---------------- */}
       <section className="about-section subscribe">
-        <div className="subscribe-box">
-          <h2>Let’s Stay Connected 📬</h2>
-          <p>Join our love-letter to the future. Get updates, stories, and joyful inspiration.</p>
-          <form onSubmit={(e) => { e.preventDefault(); alert('Thanks for subscribing! 💌'); }}>
-            <input type="email" placeholder="Your email address" required />
-            <button type="submit">Subscribe</button>
-          </form>
-        </div>
-      </section>
+  <div className="subscribe-box">
+    <h2>Let’s Stay Connected 📬</h2>
+    <p>Join our love-letter to the future. Get updates, stories, and joyful inspiration.</p>
+    <form onSubmit={(e) => { e.preventDefault(); alert('Thanks for subscribing! 💌'); }}>
+      <input type="email" placeholder="Your email address" required />
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
 
       {/* Footer */}
       <footer className="about-footer">
@@ -234,10 +227,18 @@ export default function Home() {
       <button
         className="scroll-top"
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        aria-label="Scroll to top" // Added aria-label for accessibility
       >
         ↑
       </button>
-    </div>
+
+      {/* ==================================================
+          FOOTER SECTION
+      ================================================== */}
+
+  </div>
+
+  
   );
+
+  
 }
