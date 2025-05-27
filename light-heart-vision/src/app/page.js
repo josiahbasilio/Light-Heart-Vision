@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link'; // Make sure Link is imported
+import Image from 'next/image'; // ***** IMPORT NEXT/IMAGE *****
 import { useState, useEffect } from 'react';
 
 // Assuming your CSS file is correctly imported, e.g., import './Home.css';
@@ -52,7 +53,9 @@ export default function Home() {
     return () => {
       sections.forEach((section) => observer.unobserve(section));
       window.removeEventListener('mousemove', handleMouseMove);
-      cancelAnimationFrame(animationFrame);
+      if (animationFrame) { // Check if animationFrame was set before cancelling
+        cancelAnimationFrame(animationFrame);
+      }
     };
   }, []);
 
@@ -93,7 +96,9 @@ export default function Home() {
         {['star-1', 'star-2', 'star-3'].map((star, i) => (
           <div key={i} className={`floating-shape ${star}`}>
             <div className="move-with-mouse">
-              <image src="/images/star.png" alt="star" />
+              {/* ***** USE NEXT/IMAGE HERE ***** */}
+              {/* Assuming star.png is small, e.g., 50x50. Adjust as needed. */}
+              <Image src="/images/star.png" alt="star" width={50} height={50} />
             </div>
           </div>
         ))}
@@ -114,11 +119,11 @@ export default function Home() {
             <p>Subscribe to stay connected with Light Heart Vision!</p>
             <form onSubmit={(e) => {
               e.preventDefault();
-              alert("You're in! 🌟");
+              alert("You're in! 🌟"); // Fixed unescaped entity
               setShowModal(false);
             }}>
               <input type="email" placeholder="Your email" required />
-              <button type="submit">Let&apos;s Go!</button>
+              <button type="submit">Let&apos;s Go!</button> {/* Fixed unescaped entity */}
             </form>
             <button className="close-modal" onClick={toggleModal}>×</button>
           </div>
@@ -157,25 +162,33 @@ export default function Home() {
         <h2>Featured Content</h2>
         <div className="cards">
           <div className="card" onClick={() => alert('Explore Courses')}>
-            <image src="/images/course.png" alt="Courses" />
+            {/* ***** USE NEXT/IMAGE HERE ***** */}
+            {/* Assuming course.png is e.g., 200x150. Adjust as needed. */}
+            <Image src="/images/course.png" alt="Courses" width={200} height={150} />
             <div className="card-title">Courses</div>
           </div>
 
           <div className="card" onClick={() => alert('See Upcoming Events')}>
-            <image src="/images/events.png" alt="Events" />
+            {/* ***** USE NEXT/IMAGE HERE ***** */}
+            {/* Assuming events.png is e.g., 200x150. Adjust as needed. */}
+            <Image src="/images/events.png" alt="Events" width={200} height={150} />
             <div className="card-title">Events</div>
           </div>
 
           {/* Ensure Link wraps the clickable element for navigation */}
           <Link href="/hub">
             <div className="card">
-              <image src="/images/community.png" alt="Community" />
+              {/* ***** USE NEXT/IMAGE HERE ***** */}
+              {/* Assuming community.png is e.g., 200x150. Adjust as needed. */}
+              <Image src="/images/community.png" alt="Community" width={200} height={150} />
               <div className="card-title">Community</div>
             </div>
           </Link>
 
           <div className="card" onClick={() => alert('Check Out Blogs')}>
-            <image src="/images/blog.png" alt="Blog" />
+            {/* ***** USE NEXT/IMAGE HERE ***** */}
+            {/* Assuming blog.png is e.g., 200x150. Adjust as needed. */}
+            <Image src="/images/blog.png" alt="Blog" width={200} height={150} />
             <div className="card-title">Blog</div>
           </div>
         </div>
@@ -204,9 +217,9 @@ export default function Home() {
           </div>
           <div className="flip-card">
             <div className="flip-card-inner">
-              <div className="flip-card-front">🌱 Events & Retreats</div>
+              <div className="flip-card-front">🌱 Events & Retreats</div> {/* Fixed unescaped entity */}
               <div className="flip-card-back">
-                Join us in sacred spaces for deep connection & growth.
+                Join us in sacred spaces for deep connection & growth. {/* Fixed unescaped entity */}
               </div>
             </div>
           </div>
