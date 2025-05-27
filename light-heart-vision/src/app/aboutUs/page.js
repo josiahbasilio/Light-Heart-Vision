@@ -127,14 +127,14 @@ export default function AboutPage() {
 
           <div className="team-member">
             {/* ***** USE NEXT/IMAGE HERE ***** */}
-            <Image src="/images/Sansita.jpg" alt="Sansita Pattnaik" width={150} height={150} style={{ borderRadius: '50%' }} />
+            <Image src="/images/sansita.jpg" alt="Sansita Pattnaik" width={150} height={150} style={{ borderRadius: '50%' }} />
             <h4>Sansita Pattnaik</h4>
             <p>Community Manager</p>
           </div>
 
           <div className="team-member">
             {/* ***** USE NEXT/IMAGE HERE ***** */}
-            <Image src="/images/Dhara.jpg" alt="Dhara Patel" width={150} height={150} style={{ borderRadius: '50%' }} />
+            <Image src="/images/dhara.jpg" alt="Dhara Patel" width={150} height={150} style={{ borderRadius: '50%' }} />
             <h4>Dhara Patel</h4>
             <p>Community Manager</p>
           </div>
