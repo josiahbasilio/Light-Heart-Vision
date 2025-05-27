@@ -93,7 +93,7 @@ export default function Home() {
         {['star-1', 'star-2', 'star-3'].map((star, i) => (
           <div key={i} className={`floating-shape ${star}`}>
             <div className="move-with-mouse">
-              <img src="/images/star.png" alt="star" />
+              <image src="/images/star.png" alt="star" />
             </div>
           </div>
         ))}
@@ -118,7 +118,7 @@ export default function Home() {
               setShowModal(false);
             }}>
               <input type="email" placeholder="Your email" required />
-              <button type="submit">Let's Go!</button>
+              <button type="submit">Let&apos;s Go!</button>
             </form>
             <button className="close-modal" onClick={toggleModal}>×</button>
           </div>
@@ -157,25 +157,25 @@ export default function Home() {
         <h2>Featured Content</h2>
         <div className="cards">
           <div className="card" onClick={() => alert('Explore Courses')}>
-            <img src="/images/course.png" alt="Courses" />
+            <image src="/images/course.png" alt="Courses" />
             <div className="card-title">Courses</div>
           </div>
 
           <div className="card" onClick={() => alert('See Upcoming Events')}>
-            <img src="/images/events.png" alt="Events" />
+            <image src="/images/events.png" alt="Events" />
             <div className="card-title">Events</div>
           </div>
 
           {/* Ensure Link wraps the clickable element for navigation */}
           <Link href="/hub">
             <div className="card">
-              <img src="/images/community.png" alt="Community" />
+              <image src="/images/community.png" alt="Community" />
               <div className="card-title">Community</div>
             </div>
           </Link>
 
           <div className="card" onClick={() => alert('Check Out Blogs')}>
-            <img src="/images/blog.png" alt="Blog" />
+            <image src="/images/blog.png" alt="Blog" />
             <div className="card-title">Blog</div>
           </div>
         </div>

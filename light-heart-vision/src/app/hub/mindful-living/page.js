@@ -50,7 +50,7 @@ export default function MindfulLiving() {
       {/* Meditation Section */}
       <div className="meditation-section">
         <h2>How to Meditate 🧘‍♂️</h2>
-        <p>Meditation is a practice that helps you stay present, calm your mind, and reduce stress. It's a journey of peace and self-awareness.</p>
+        <p>Meditation is a practice that helps you stay present, calm your mind, and reduce stress. It&apos;s a journey of peace and self-awareness.</p>
         <Link href="https://www.mindful.org/how-to-meditate/" target="_blank" className="meditation-link">
           Learn how to meditate here →
         </Link>
