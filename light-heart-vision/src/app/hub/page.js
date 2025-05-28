@@ -1,7 +1,8 @@
 "use client";
 import "./hub.css";
 import Link from "next/link";
-import Footer from '@/components/Footer';
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function Hub() {
   const categories = [
@@ -29,27 +30,18 @@ export default function Hub() {
   ];
 
   return (
-    <div className="hub-wrapper">
-      {/* Navigation Bar */}
-      <nav className="hub-nav-bar">
-        <div className="hub-nav-inner">
-          <ul className="hub-nav-center">
-            <li><Link href="/hub">Community</Link></li>
-            <li><a href="#courses">Courses</a></li>
-            <li><Link href="/aboutUs">About</Link></li>
-            <li><a href="#events">Events</a></li>
-            <li><a href="#contact">Contact Us</a></li>
-          </ul>
-          <div className="hub-nav-right">
-            <Link href="/signin">
-              <button className="hub-signIn">
-                <span className="icon">👤</span>
-                <span className="label">Sign In</span>
-              </button>
-            </Link>
-          </div>
+    <>
+      {/* Include Header */}
+      <Header />
+
+      {/* ------- Main content ------- */}
+      <main className="hub-main">
+        {/* Title */}
+        <div className="hub-header">
+          <h1>Community Hub</h1>
+          <p className="hub-subtitle">Search. Share. Support.</p>
         </div>
-      </nav>
+
         {/* Breadcrumb */}
         <div className="hub-breadcrumb">
           You are here →{" "}
@@ -83,10 +75,11 @@ export default function Hub() {
             </Link>
           ))}
         </section>
+      </main>
       {/* ------- Main content ------- */}
 
-       {/* Include Footer */}
-       <Footer />
-    </div>
+      {/* Include Footer */}
+      <Footer />
+    </>
   );
 }
