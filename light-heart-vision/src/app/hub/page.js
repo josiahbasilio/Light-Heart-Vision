@@ -7,9 +7,10 @@ import Footer from "@/components/Footer";
 export default function Hub() {
   const categories = [
     {
-      icon: "🌟",
-      title: "Vision Board",
-      desc: "Share your dreams and intentions with a like-minded community.",
+      icon: "📅",
+      title: "Events",
+      desc: "Upcoming community events, workshops, and meetups.",
+      href: "/hub/events-calendar",
     },
     {
       icon: "🫶",
