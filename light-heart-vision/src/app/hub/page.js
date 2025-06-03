@@ -12,9 +12,10 @@ export default function Hub() {
       desc: "Share your dreams and intentions with a like-minded community.",
     },
     {
-      icon: "🗓️",
-      title: "Events",
-      desc: "Explore upcoming virtual and in-person gatherings.",
+      icon: "🫶",
+      title: "Heart Space",
+      desc: "Connect, reflect, and co-create through meaningful community conversations.",
+      href: "/hub/heart-space", // This is important, links to heartspace page.
     },
     {
       icon: "📚",
@@ -25,7 +26,7 @@ export default function Hub() {
       icon: "🧘‍♀️",
       title: "Mindful Living",
       desc: "Discover practices for peace, wellness, and connection.",
-      href: "/hub/mindful-living", // This is important
+      href: "/hub/mindful-living", // This is important, links to mindful-living page.
     },
   ];
 
