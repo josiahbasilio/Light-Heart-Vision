@@ -37,7 +37,7 @@ export default function HeartSpace() {
 
         {/* Start a Topic Button */}
         <div className="start-topic-btn">
-          <button>Start a Topic</button>
+          <button>START A TOPIC</button>
         </div>
 
         {/* Discussion Section */}
@@ -51,6 +51,31 @@ export default function HeartSpace() {
           <Link href="/heartspace/topics" className="discussion-link">
             Explore topics & join the conversation →
           </Link>
+        </div>
+
+        {/* Guidelines Card Section */}
+        <div className="guidelines-card">
+          <div className="guidelines-content">
+            <h3>[Guidelines] Heart Space</h3>
+            <p>
+              Welcome to Heart Space! This is the place for mindful discussion,
+              respectful dialogue, and collaborative co-creation. Be kind, stay
+              curious, and uplift one another :)
+            </p>
+            <span className="posted-by">
+              Posted by Team Decoders / 2025-5-31 9:51:40 AM
+            </span>
+          </div>
+          <div className="guidelines-stats">
+            <div className="stat">
+              <strong>0</strong>
+              <span>replies</span>
+            </div>
+            <div className="stat">
+              <strong>17</strong>
+              <span>likes</span>
+            </div>
+          </div>
         </div>
       </main>
       {/* ------- Main content ------- */}
