@@ -10,7 +10,7 @@ export default function Hub() {
       icon: "📅",
       title: "Events",
       desc: "Upcoming community events, workshops, and meetups.",
-      href: "/hub/events-calendar",
+      href: "/hub/events-calendar", // This is important, links to events calendar page.
     },
     {
       icon: "🫶",
@@ -22,6 +22,7 @@ export default function Hub() {
       icon: "📚",
       title: "Community Resources",
       desc: "Find guides, tools, and content shared by members.",
+      href: "/hub/community-resources", // This is important, links to community resource page.
     },
     {
       icon: "🧘‍♀️",
