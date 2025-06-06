@@ -17,4 +17,4 @@ logs
 npm-debug.log*
 # ... other common ignores ...
 .DS_Store
-Thumbs.db
+Thumbs.db.next/
