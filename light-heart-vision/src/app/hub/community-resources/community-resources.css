@@ -1,0 +1,61 @@
+@import '../hub.css';
+
+/* Main Layout */
+.resources-main {
+  padding-top: 100px;
+}
+
+/* Resource Card */
+.resource-card {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fef6e4;
+  border-left: 6px solid #10b981;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  margin: 2rem auto;
+  max-width: 900px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  gap: 2rem;
+}
+
+.resource-content {
+  flex: 1;
+}
+
+.resource-content h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.resource-content p {
+  font-size: 1rem;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.posted-by {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.resource-stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.stat {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.stat strong {
+  display: block;
+  font-size: 1.5rem;
+  color: #10b981;
+}

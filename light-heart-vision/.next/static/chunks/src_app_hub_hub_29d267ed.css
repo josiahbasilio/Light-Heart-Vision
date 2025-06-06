@@ -1,12 +1,11 @@
-/* ------------ Main Content Layout ------------ */
+/* [project]/src/app/hub/hub.css [app-client] (css) */
 .hub-main {
-  padding-top: 100px; 
+  padding-top: 100px;
 }
 
-/* ------------ Page Title ------------ */
 .hub-header {
   text-align: center;
-  margin: 0 auto 1.5rem auto;
+  margin: 0 auto 1.5rem;
 }
 
 .hub-header h1 {
@@ -19,33 +18,31 @@
 .hub-subtitle {
   font-size: 1.1rem;
   color: #475569;
-  margin-top: 0.25rem;
+  margin-top: .25rem;
 }
 
-/* ------------ Breadcrumb Links ------------ */
 .hub-breadcrumb {
   text-align: center;
   margin-bottom: 2rem;
-  font-size: 0.95rem;
+  font-size: .95rem;
   color: #6b7280;
 }
 
 .hub-link {
-  color: #7c3aed; 
+  color: #7c3aed;
   text-decoration: none;
-  transition: 0.2s ease;
+  transition: all .2s;
 }
 
 .hub-link:hover {
   text-decoration: underline;
-  text-shadow: 0 0 5px rgba(124, 58, 237, 0.4);
+  text-shadow: 0 0 5px #7c3aed66;
 }
 
-/* ------------ Search Bar ------------ */
 .hub-search-container {
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
+  gap: .5rem;
   margin-bottom: 2rem;
   max-width: 600px;
   margin-inline: auto;
@@ -53,28 +50,27 @@
 
 .hub-search-container input {
   flex: 1;
-  padding: 0.75rem 1rem;
+  padding: .75rem 1rem;
   border-radius: 9999px;
   border: 1px solid #d1d5db;
   font-size: 1rem;
 }
 
 .hub-search-container button {
-  padding: 0.75rem 1.25rem;
+  padding: .75rem 1.25rem;
   border: none;
   border-radius: 9999px;
-  background: #f4c542; 
-  color: white;
+  background: #f4c542;
+  color: #fff;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: background .2s;
 }
 
 .hub-search-container button:hover {
   background: #7c3aed;
 }
 
-/* ------------ FAQ / Categories ------------ */
 .hub-buttons {
   display: flex;
   justify-content: center;
@@ -85,17 +81,17 @@
 
 .hub-buttons button {
   border: none;
-  padding: 0.75rem 1.5rem;
+  padding: .75rem 1.5rem;
   border-radius: 12px;
   font-weight: 600;
   cursor: pointer;
   font-size: 1rem;
-  transition: 0.3s ease;
+  transition: all .3s;
 }
 
 .hub-buttons .active {
   background: #f4c542;
-  color: white;
+  color: #fff;
 }
 
 .hub-buttons .active:hover {
@@ -111,7 +107,6 @@
   background-color: #e5e7eb;
 }
 
-/* ------------ Grid Section ------------ */
 .hub-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -120,7 +115,6 @@
   margin: 0 auto;
 }
 
-/* ------------ Card Styles ------------ */
 .hub-card {
   display: flex;
   flex-direction: column;
@@ -128,36 +122,34 @@
   height: 100%;
   padding: 2rem;
   border-radius: 20px;
-  background: white;
+  background: #fff;
   text-align: center;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 24px #0000000f;
+  transition: transform .3s, box-shadow .3s;
 }
-
 
 .hub-icon {
   font-size: 2.7rem;
-  margin-bottom: 0.9rem;
+  margin-bottom: .9rem;
 }
 
-.hub-card h3 {  /*Card titles*/
+.hub-card h3 {
   font-size: 1.1rem;
   font-weight: 600;
   color: #374151;
-  margin-bottom: 0.4rem;
+  margin-bottom: .4rem;
 }
 
 .hub-desc {
-  font-size: 0.95rem;
+  font-size: .95rem;
   color: #666;
   opacity: 0;
   transform: translateY(10px);
-  transition: all 0.3s ease;
+  transition: all .3s;
   pointer-events: none;
-  min-height: 3em; 
+  min-height: 3em;
   display: block;
 }
-
 
 .hub-card:hover .hub-desc {
   opacity: 1;
@@ -166,10 +158,9 @@
 
 .hub-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 32px #0000001a;
 }
 
-/* ------------ Card Links ------------ */
 .hub-card-link {
   text-decoration: none;
   color: inherit;
@@ -179,3 +170,6 @@
   text-decoration: none;
   color: inherit;
 }
+
+
+/*# sourceMappingURL=src_app_hub_hub_29d267ed.css.map*/

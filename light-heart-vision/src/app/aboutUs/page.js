@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import './about.css';
 
+
 export default function AboutPage() {
   const founderImages = [
     '/images/founder1.jpg',
