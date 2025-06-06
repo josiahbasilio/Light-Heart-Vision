@@ -20,7 +20,7 @@ export default function Header() {
 
             {/* Right Section: Sign In Button */}
             <div className="nav-right">
-              <Link href="/signin" passHref legacyBehavior>
+              <Link href="/signUp" passHref legacyBehavior>
                 <a className="signInLink">
                   <div className="signIn">
                     <span className="icon">👤</span>

@@ -104,7 +104,7 @@ export default function Home() {
               }}
             >
               <input type="email" placeholder="Your email" required />
-              <button type="submit">Let's Go!</button>
+              <button type="submit">Let&apos;s Go!</button>
             </form>
             <button className="close-modal" onClick={toggleModal}>
               ×
