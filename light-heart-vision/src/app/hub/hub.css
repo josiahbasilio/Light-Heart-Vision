@@ -1,82 +1,9 @@
-/* -------------------- */
-/* 🌐 NAVIGATION BAR */
-/* -------------------- */
-.hub-nav-bar {
-  background: white;
-  border-radius: 1.25rem;
-  padding: 1rem 2rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-  display: flex;
-  justify-content: center;
+/* ------------ Main Content Layout ------------ */
+.hub-main {
+  padding-top: 100px; 
 }
 
-.hub-nav-inner {
-  max-width: 1200px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  position: relative;
-}
-
-.hub-nav-center {
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  justify-content: center;
-  flex: 1;
-}
-
-.hub-nav-center li a {
-  text-decoration: none;
-  color: #1f2937;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.hub-nav-center li a:hover {
-  color: #f59e0b;
-}
-
-.hub-nav-right {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.hub-signIn {
-  background: #f3f4f6;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 9999px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.hub-signIn:hover {
-  background: #e5e7eb;
-}
-
-/* -------------------- */
-/* 🎯 PAGE WRAPPER */
-/* -------------------- */
-.hub-wrapper {
-  min-height: 100vh;
-  background: linear-gradient(to bottom, #fff6e9, #ffe4e1); /*background color for page*/
-  font-family: 'Segoe UI', sans-serif;
-  padding: 1.5rem;
-  color: #333;
-}
-
-/* -------------------- */
-/* 🧭 PAGE TITLE        */
-/* -------------------- */
+/* ------------ Page Title ------------ */
 .hub-header {
   text-align: center;
   margin: 0 auto 1.5rem auto;
@@ -95,9 +22,7 @@
   margin-top: 0.25rem;
 }
 
-/* -------------------- */
-/* 🧭 BREADCRUMB links */
-/* -------------------- */
+/* ------------ Breadcrumb Links ------------ */
 .hub-breadcrumb {
   text-align: center;
   margin-bottom: 2rem;
@@ -116,9 +41,7 @@
   text-shadow: 0 0 5px rgba(124, 58, 237, 0.4);
 }
 
-/* -------------------- */
-/* 🔍 SEARCH BAR */
-/* -------------------- */
+/* ------------ Search Bar ------------ */
 .hub-search-container {
   display: flex;
   justify-content: center;
@@ -151,9 +74,7 @@
   background: #7c3aed;
 }
 
-/* -------------------- */
-/* 🟣 FAQ / CATEGORIES */
-/* -------------------- */
+/* ------------ FAQ / Categories ------------ */
 .hub-buttons {
   display: flex;
   justify-content: center;
@@ -190,9 +111,7 @@
   background-color: #e5e7eb;
 }
 
-/* -------------------- */
-/* 💠 GRID SECTION */
-/* -------------------- */
+/* ------------ Grid Section ------------ */
 .hub-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -201,26 +120,27 @@
   margin: 0 auto;
 }
 
-/* -------------------- */
-/* 📦 CARD STYLES */
-/* -------------------- */
+/* ------------ Card Styles ------------ */
 .hub-card {
-  background: white;
-  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
   padding: 2rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
+  background: white;
   text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
 }
+
 
 .hub-icon {
   font-size: 2.7rem;
   margin-bottom: 0.9rem;
 }
 
-.hub-card h3 {
+.hub-card h3 {  /*Card titles*/
   font-size: 1.1rem;
   font-weight: 600;
   color: #374151;
@@ -234,7 +154,10 @@
   transform: translateY(10px);
   transition: all 0.3s ease;
   pointer-events: none;
+  min-height: 3em; 
+  display: block;
 }
+
 
 .hub-card:hover .hub-desc {
   opacity: 1;
@@ -246,7 +169,7 @@
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
 }
 
-/* Remove link underline in cards */
+/* ------------ Card Links ------------ */
 .hub-card-link {
   text-decoration: none;
   color: inherit;

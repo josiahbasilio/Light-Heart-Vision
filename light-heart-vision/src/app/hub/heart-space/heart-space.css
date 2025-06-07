@@ -1,0 +1,134 @@
+/* Reuse Community Hub Styles */
+@import '../hub.css';
+
+/* ------------ Main Content Layout ------------ */
+.heartspace-main {
+  padding-top: 100px;
+}
+
+/* ------------ Header Container ------------ */
+.heartspace-header {
+  text-align: center;
+  margin: 0 auto 1.5rem auto;
+}
+
+/* ------------ Header Title ------------ */
+.heartspace-header h1 {
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+/* ------------ Start Topic Button ------------ */
+.start-topic-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.start-topic-btn button {
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 9999px;
+  background-color: #8b5cf6;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.start-topic-btn button:hover {
+  background-color: #7c3aed;
+}
+
+/* ------------ Discussion Section ------------ */
+.discussion-section {
+  background-color: #fcd5ce; /* warm peachy-pink */
+  padding: 1.5rem;
+  border-radius: 1rem;
+  margin-top: 2rem;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.discussion-section h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #1e293b;
+}
+
+.discussion-section p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #374151;
+}
+
+.discussion-link {
+  text-decoration: none;
+  color: #be185d; /* deep rose */
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.discussion-link:hover {
+  color: #9d174d; /* darker rose */
+  text-decoration: underline;
+}
+
+/* ------------ Guidelines Card ------------ */
+.guidelines-card {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fef6e4;
+  border-left: 6px solid #be185d;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  margin: 2rem auto;
+  max-width: 900px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  gap: 2rem;
+}
+
+.guidelines-content {
+  flex: 1;
+}
+
+.guidelines-content h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.guidelines-content p {
+  font-size: 1rem;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.posted-by {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.guidelines-stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.stat {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.stat strong {
+  display: block;
+  font-size: 1.5rem;
+  color: #be185d;
+}
+
