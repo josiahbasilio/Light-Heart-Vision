@@ -2,7 +2,7 @@
 import "./mindful-living.css";
 import Link from "next/link";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Footer from "@/components/Footer"; // Assuming you want to add a Footer
 
 export default function MindfulLiving() {
   return (
@@ -41,7 +41,7 @@ export default function MindfulLiving() {
         </div>
 
         {/* Meditation Section */}
-        <div className="meditation-section">
+        <div className="meditation-section"> {/* This is the first, correctly placed one */}
           <h2>How to Meditate 🧘‍♂️</h2>
           <p>
             Meditation is a practice that helps you stay present, calm your
@@ -58,20 +58,12 @@ export default function MindfulLiving() {
       </main>
       {/* ------- Main content ------- */}
 
-<<<<<<< HEAD
-      {/* Meditation Section */}
-      <div className="meditation-section">
-        <h2>How to Meditate 🧘‍♂️</h2>
-        <p>Meditation is a practice that helps you stay present, calm your mind, and reduce stress. It&apos;s a journey of peace and self-awareness.</p>
-        <Link href="https://www.mindful.org/how-to-meditate/" target="_blank" className="meditation-link">
-          Learn how to meditate here →
-        </Link>
-      </div>
-    </div>
-=======
+      {/* The duplicate Meditation Section below was removed. */}
+      {/* If it was intended to be somewhere else, move it INSIDE the <main> or <>,
+          and before the <Footer /> if you add one. */}
+
       {/* Include Footer */}
       <Footer />
-    </>
->>>>>>> dev
+    </> // The fragment closes here, encompassing Header, main, and Footer
   );
 }
