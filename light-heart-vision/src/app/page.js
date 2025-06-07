@@ -170,7 +170,7 @@ export default function Home() {
           </div>
 
           <div className="card" onClick={() => alert("Check Out Blogs")}>
-            <img src="/images/blog.png" alt="Blog" />
+            <Image src="/images/blog.png" alt="Blog" width={150} height={100} />
             <div className="card-title">Blog</div>
           </div>
         </div>
