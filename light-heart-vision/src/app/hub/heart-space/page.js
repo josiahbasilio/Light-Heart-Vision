@@ -26,7 +26,7 @@ export default function HeartSpace() {
           <Link href="/hub" className="hub-link">
             Community Hub
           </Link>{" "}
-          / HeartSpace
+          / Heart Space
         </div>
 
         {/* Search Bar */}

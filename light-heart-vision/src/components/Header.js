@@ -1,5 +1,5 @@
-'use client';
-import Link from 'next/link';
+"use client";
+import Link from "next/link";
 
 export default function Header() {
   return (
@@ -7,15 +7,29 @@ export default function Header() {
       <header>
         <nav className="nav-bar">
           <div className="nav-inner">
-            <div className="nav-left" />
+            <div className="nav-left">
+              <Link href="/" passHref legacyBehavior>
+                <a className="logo">Light Heart Vision</a>
+              </Link>
+            </div>
 
             {/* Center Navigation Links */}
             <ul className="nav-center">
-              <li><a href="/hub">Community</a></li>
-              <li><a href="#courses">Courses</a></li>
-              <li><a href="/aboutUs">About</a></li>
-              <li><a href="#events">Events</a></li>
-              <li><a href="#contact">Contact Us</a></li>
+              <li>
+                <a href="/hub">Community</a>
+              </li>
+              <li>
+                <a href="#courses">Courses</a>
+              </li>
+              <li>
+                <a href="/aboutUs">About</a>
+              </li>
+              <li>
+                <a href="#events">Events</a>
+              </li>
+              <li>
+                <a href="#contact">Contact Us</a>
+              </li>
             </ul>
 
             {/* Right Section: Sign In Button */}
@@ -73,6 +87,31 @@ export default function Header() {
             justify-content: flex-start;
           }
 
+          /* ------------ Light Heart Vision Logo ---------------*/
+          .logo {
+            font-family: "Segoe UI", sans-serif;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #993333;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            position: relative;
+          }
+
+          .logo::after {
+            content: "";
+            display: block;
+            height: 2px;
+            background: #efc95a;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
+          }
+
+          .logo:hover::after {
+            transform: scaleX(1);
+          }
+
           /* ------------ Center Navigation Links ---------------*/
           .nav-center {
             display: flex;
@@ -93,7 +132,7 @@ export default function Header() {
           }
 
           .nav-center li a::after {
-            content: '';
+            content: "";
             display: block;
             height: 2px;
             background: #efc95a;
@@ -107,7 +146,7 @@ export default function Header() {
           }
 
           /* ---------------- Sign In Button Styling ------------- */
-          
+
           .signInLink {
             text-decoration: none;
           }
