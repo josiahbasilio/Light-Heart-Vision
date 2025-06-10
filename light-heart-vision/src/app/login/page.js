@@ -17,7 +17,7 @@ export default function LoginPage() {
 
   const router = useRouter();
 
-  // ✅ Realtime validation like SignUp
+  
   useEffect(() => {
     setPasswordValid(password.length >= 6);
   }, [password]);
