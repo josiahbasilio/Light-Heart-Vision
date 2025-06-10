@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import './about.css';
-
+import Header from "@/components/Header";
 
 export default function AboutPage() {
   const founderImages = [
@@ -22,6 +22,7 @@ export default function AboutPage() {
   
   return (
     <div className="about-wrapper">
+      <Header/>
       {/* 💡 Intro Section */}
       <section className="about-intro">
         <div className="intro-content">
