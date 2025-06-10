@@ -19,7 +19,7 @@ export default function Header() {
                 <a href="/hub">Community</a>
               </li>
               <li>
-                <a href="#courses">Courses</a>
+                <a href="/courses">Courses</a>
               </li>
               <li>
                 <a href="/aboutUs">About</a>

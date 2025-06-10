@@ -1,0 +1,177 @@
+/* Courses Page Styles */
+
+.courses-main {
+  padding: 100px 20px 50px;
+  max-width: 1100px;
+  margin: 0 auto;
+  animation: fadeIn 1s ease-in-out;
+  background: linear-gradient(to bottom, #fffefb, #f9f5f0);
+  border-radius: 12px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.courses-header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.courses-header h1 {
+  font-size: 2.8rem;
+  color: #993333;
+  margin-bottom: 8px;
+}
+
+.courses-header::after {
+  content: "Discover experiences to expand your vision, creativity, and conscious living.";
+  display: block;
+  font-size: 1rem;
+  color: #666;
+  margin-top: 5px;
+}
+
+/* Breadcrumb */
+.hub-breadcrumb {
+  text-align: center;
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+  color: #555;
+}
+
+.hub-link {
+  color: #993333;
+  text-decoration: none;
+  border-bottom: 1px solid #efc95a;
+  transition: color 0.3s, border-bottom 0.3s;
+}
+
+.hub-link:hover {
+  color: #f4c542;
+  border-bottom: 2px solid #efc95a;
+}
+
+/* Search Bar */
+.hub-search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.hub-search-container input {
+  padding: 12px;
+  border-radius: 8px 0 0 8px;
+  border: 1px solid #ccc;
+  width: 320px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.hub-search-container input:focus {
+  outline: none;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.hub-search-container button {
+  padding: 12px 22px;
+  border-radius: 0 8px 8px 0;
+  border: none;
+  background-color: #efc95a;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.hub-search-container button:hover {
+  background-color: #f4c542;
+  transform: scale(1.05);
+}
+
+/* Course Listings */
+.courses-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+/* Course Card */
+.course-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.course-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.course-card h3 {
+  margin-top: 0;
+  color: #993333;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.course-card p {
+  margin: 10px 0;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Course Info Section */
+.course-info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.course-info .price-badge {
+  background-color: #f4c542;
+  color: #993333;
+  font-weight: bold;
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+.course-info .instructor {
+  font-style: italic;
+  color: #777;
+}
+
+.course-info .enroll-btn {
+  margin-top: 10px;
+  padding: 10px 16px;
+  background-color: #993333;
+  color: #fff;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.course-info .enroll-btn:hover {
+  background-color: #bb5555;
+}
