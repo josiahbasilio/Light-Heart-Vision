@@ -162,6 +162,13 @@ export default function SignUpPage() {
 
         {/* Display overall success/error message */}
         {message && <p className={`message ${message.startsWith('❌') ? 'error' : 'success'}`}>{message}</p>}
+        <p style={{ marginTop: '1.5rem', fontSize: '0.95rem', color: '#555', textAlign: 'center' }}>
+  Already a member?{' '}
+  <a href="/login" style={{ color: '#993333', fontWeight: '600', textDecoration: 'none' }}>
+    Login
+  </a>
+</p>
+
       </div>
     </main>
   );

@@ -33,12 +33,15 @@ export default function Header() {
             </ul>
 
             {/* Right Section: Sign In Button */}
-            <div className="nav-right">
+           <div className="nav-right" style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+
+
+
               <Link href="/signUp" passHref legacyBehavior>
                 <a className="signInLink">
                   <div className="signIn">
                     <span className="icon">👤</span>
-                    <span className="label">Sign In</span>
+                    <span className="label">Sign Up</span>
                   </div>
                 </a>
               </Link>
@@ -145,7 +148,7 @@ export default function Header() {
             transform: scaleX(1);
           }
 
-          /* ---------------- Sign In Button Styling ------------- */
+         
 
           .signInLink {
             text-decoration: none;
