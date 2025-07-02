@@ -31,8 +31,11 @@ export default function Blog() {
           <button>🔍</button>
         </div>
 
+        {/* ✅ Updated this button to navigate to blog/start-topic */}
         <div className="start-topic-btn">
-          <button>Start a Topic</button>
+          <Link href="/hub/blog/start-topic">
+            <button>START A TOPIC</button>
+          </Link>
         </div>
 
         <div className="blog-section">
