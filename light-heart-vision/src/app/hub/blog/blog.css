@@ -1,18 +1,17 @@
 /* Reuse Community Hub Styles */
 @import '../hub.css';
 
-/* ------------ Main Content Layout ------------ */
+/* ------------ Main Layout ------------ */
 .blog-main {
   padding-top: 100px;
 }
 
-/* ------------ Header Container ------------ */
+/* ------------ Header Title ------------ */
 .blog-header {
   text-align: center;
   margin: 0 auto 1.5rem auto;
 }
 
-/* ------------ Header Title ------------ */
 .blog-header h1 {
   font-size: 2.75rem;
   font-weight: 700;
@@ -20,7 +19,51 @@
   margin: 0;
 }
 
-/* ------------ Start Topic Button ------------ */
+/* ------------ Breadcrumbs ------------ */
+.hub-breadcrumb {
+  text-align: center;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  color: #6b7280;
+}
+
+.hub-link {
+  color: #8b5cf6;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.hub-link:hover {
+  color: #7c3aed;
+}
+
+
+/* ------------ Search Bar ------------ */
+.hub-search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.hub-search-container input {
+  padding: 0.5rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 9999px 0 0 9999px;
+  width: 300px;
+  font-size: 1rem;
+}
+
+.hub-search-container button {
+  padding: 0.5rem 1rem;
+  background-color: #8b5cf6;
+  color: white;
+  border: none;
+  border-radius: 0 9999px 9999px 0;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* ------------ Start Topic Button (Purple) ------------ */
 .start-topic-btn {
   display: flex;
   justify-content: center;
@@ -42,46 +85,11 @@
   background-color: #7c3aed;
 }
 
-/* ------------ Blog Section ------------ */
-.blog-section {
-  background-color: #fde68a;
-  padding: 1.5rem;
-  border-radius: 1rem;
-  margin-top: 2rem;
-  text-align: center;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-}
-
-.blog-section h2 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-  color: #1e293b;
-}
-
-.blog-section p {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  color: #374151;
-}
-
-.meditation-link {
-  text-decoration: none;
-  color: #7c3aed;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.meditation-link:hover {
-  color: #5b21b6;
-  text-decoration: underline;
-}
-
-/* ------------ Topic Form Styling (Copied from Heart Space) ------------ */
-.topic-form {
+/* ------------ Form Styling (Start Blog) ------------ */
+.blog-form {
   margin: 2rem auto;
   max-width: 700px;
-  background-color: #fefce8; /* ✅ updated to match Heart Space */
+  background-color: #fefce8;
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
@@ -90,22 +98,21 @@
   gap: 1rem;
 }
 
-
-.topic-form label {
+.blog-form label {
   font-weight: 600;
   color: #1e293b;
 }
 
-.topic-form input,
-.topic-form textarea {
+.blog-form input,
+.blog-form textarea {
   width: 100%;
   padding: 0.75rem;
   border-radius: 0.5rem;
   border: 1px solid #cbd5e1;
   font-size: 1rem;
-  font-family: inherit;
 }
 
+/* ------------ Shared Button Style (Submit + Cancel) ------------ */
 .topic-button {
   background-color: #8b5cf6;
   color: white;
@@ -126,11 +133,46 @@
   transform: scale(0.98);
 }
 
-/* ------------ Confirmation Card After Submission ------------ */
-.guidelines-card {
+/* ------------ Yellow Welcome Banner ------------ */
+.discussion-section {
+  background-color: #fef9c3; /* soft yellow */
+  padding: 1.5rem;
+  border-radius: 1rem;
+  margin-top: 2rem;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.discussion-section h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #1e293b;
+}
+
+.discussion-section p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #374151;
+}
+
+.discussion-link {
+  text-decoration: none;
+  color: #8b5cf6;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.discussion-link:hover {
+  color: #7c3aed;
+  text-decoration: underline;
+}
+
+/* ------------ Blog Card (Purple Left Border) ------------ */
+.blog-card {
   display: flex;
   justify-content: space-between;
-  background-color: #fff7ed;
+  background-color: #fef6ff;
   border-left: 6px solid #8b5cf6;
   padding: 1.5rem;
   border-radius: 1rem;
@@ -140,21 +182,15 @@
   gap: 2rem;
 }
 
-.guidelines-content {
-  flex: 1;
-}
-
-.guidelines-content h3 {
+.blog-content h3 {
   font-size: 1.25rem;
   font-weight: 700;
   color: #1e293b;
-  margin-bottom: 0.5rem;
 }
 
-.guidelines-content p {
+.blog-content p {
   font-size: 1rem;
   color: #374151;
-  margin-bottom: 0.5rem;
 }
 
 .posted-by {
@@ -162,7 +198,7 @@
   color: #6b7280;
 }
 
-.guidelines-stats {
+.blog-stats {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -170,13 +206,12 @@
   text-align: center;
 }
 
-.stat {
-  font-size: 0.9rem;
-  color: #6b7280;
-}
-
 .stat strong {
-  display: block;
   font-size: 1.5rem;
   color: #8b5cf6;
+}
+
+.stat span {
+  font-size: 0.875rem;
+  color: #6b7280;
 }

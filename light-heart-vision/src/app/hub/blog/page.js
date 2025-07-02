@@ -26,26 +26,24 @@ export default function Blog() {
           / Blog
         </div>
 
-        <div className="hub-search-container">
-          <input type="text" placeholder="Search all content" />
-          <button>🔍</button>
-        </div>
-
-        {/* ✅ Updated this button to navigate to blog/start-topic */}
+        {/* Start a Topic Button */}
         <div className="start-topic-btn">
-          <Link href="/hub/blog/start-topic">
+          <Link href="/hub/blog/start-blog">
             <button>START A TOPIC</button>
           </Link>
         </div>
 
-        <div className="blog-section">
-          <h2>Latest Posts 📝</h2>
+        <div className="discussion-section">
+          <h2>Welcome to the Blog 📝</h2>
           <p>
-            Explore reflections, community stories, and recent updates from
-            Light Heart Vision members.
+            Discover community stories, reflections, and updates shared by
+            members of Light Heart Vision.
           </p>
-          <Link href="/hub/blog/posts" className="meditation-link">
-            Browse all posts →
+          <Link
+            href="/hub/blog/blog-posts"
+            className="discussion-link blog-link"
+          >
+            Explore posts →
           </Link>
         </div>
       </main>
