@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image"; // ✅ Added for using logo image
 
 export default function Header() {
   return (
@@ -8,8 +9,18 @@ export default function Header() {
         <nav className="nav-bar">
           <div className="nav-inner">
             <div className="nav-left">
+              {/* ✅ REPLACED TEXT LOGO WITH IMAGE LOGO */}
               <Link href="/" passHref legacyBehavior>
-                <a className="logo">Light Heart Vision</a>
+                <a className="logo-image-link">
+                  <Image
+                    src="/images/Light_Heart_Vision_Logo.png" // ✅ Your glowing heart logo image
+                    alt="Light Heart Vision Logo"
+                    width={55}
+                    height={55}
+                    className="glow-logo" // ✅ CSS hover effect
+                    priority
+                  />
+                </a>
               </Link>
             </div>
 
@@ -33,10 +44,10 @@ export default function Header() {
             </ul>
 
             {/* Right Section: Sign In Button */}
-           <div className="nav-right" style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-
-
-
+            <div
+              className="nav-right"
+              style={{ display: "flex", alignItems: "center", gap: "12px" }}
+            >
               <Link href="/signUp" passHref legacyBehavior>
                 <a className="signInLink">
                   <div className="signIn">
@@ -51,8 +62,6 @@ export default function Header() {
 
         {/* Embedded Styles */}
         <style jsx>{`
-          /* ---------------   Header Container --------------------- */
-
           header {
             background: #ffffffcc;
             position: fixed;
@@ -63,7 +72,6 @@ export default function Header() {
             backdrop-filter: blur(10px);
           }
 
-          /* ------------ Navigation Bar Layout ------------ */
           .nav-bar {
             display: flex;
             justify-content: center;
@@ -90,32 +98,16 @@ export default function Header() {
             justify-content: flex-start;
           }
 
-          /* ------------ Light Heart Vision Logo ---------------*/
-          .logo {
-            font-family: "Segoe UI", sans-serif;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #993333;
-            text-decoration: none;
-            letter-spacing: 0.5px;
-            position: relative;
+          /* ✅ NEW: Logo image styling */
+          .glow-logo {
+            transition: transform 0.3s ease, filter 0.3s ease;
           }
 
-          .logo::after {
-            content: "";
-            display: block;
-            height: 2px;
-            background: #efc95a;
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s;
+          .glow-logo:hover {
+            transform: scale(1.08);
+            filter: drop-shadow(0 0 6px gold) brightness(1.2);
           }
 
-          .logo:hover::after {
-            transform: scaleX(1);
-          }
-
-          /* ------------ Center Navigation Links ---------------*/
           .nav-center {
             display: flex;
             justify-content: center;
@@ -147,8 +139,6 @@ export default function Header() {
           .nav-center li a:hover::after {
             transform: scaleX(1);
           }
-
-         
 
           .signInLink {
             text-decoration: none;
