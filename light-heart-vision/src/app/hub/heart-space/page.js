@@ -31,7 +31,7 @@ export default function HeartSpace() {
           <button>🔍</button>
         </div>
 
-        {/* Start a Topic Button - Goes to New Page */}
+        {/* Start a Topic Button */}
         <div className="start-topic-btn">
           <Link href="/hub/heart-space/start-topic">
             <button>START A TOPIC</button>
@@ -45,12 +45,13 @@ export default function HeartSpace() {
             questions, and take part in conscious conversations that inspire
             growth and community support.
           </p>
-          <Link href="/heartspace/topics" className="discussion-link">
+          {/* ✅ Fixed routing to Explore Topics */}
+          <Link href="/hub/heart-space/topics" className="discussion-link">
             Explore topics & join the conversation →
           </Link>
         </div>
 
-        {/* Guideline Card */}
+        {/* Guidelines Card */}
         <div className="guidelines-card">
           <div className="guidelines-content">
             <h3>[Guidelines] Heart Space</h3>
