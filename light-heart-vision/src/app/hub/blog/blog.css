@@ -2,18 +2,18 @@
 @import '../hub.css';
 
 /* ------------ Main Content Layout ------------ */
-.mindful-main {
-  padding-top: 100px; 
+.blog-main {
+  padding-top: 100px;
 }
 
 /* ------------ Header Container ------------ */
-.mindful-header {
+.blog-header {
   text-align: center;
   margin: 0 auto 1.5rem auto;
 }
 
 /* ------------ Header Title ------------ */
-.mindful-header h1 {
+.blog-header h1 {
   font-size: 2.75rem;
   font-weight: 700;
   color: #1e293b;
@@ -42,8 +42,8 @@
   background-color: #7c3aed;
 }
 
-/* ------------ Meditation Section ------------ */
-.meditation-section {
+/* ------------ Blog Section ------------ */
+.blog-section {
   background-color: #fde68a;
   padding: 1.5rem;
   border-radius: 1rem;
@@ -52,14 +52,14 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
 }
 
-.meditation-section h2 {
+.blog-section h2 {
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
   color: #1e293b;
 }
 
-.meditation-section p {
+.blog-section p {
   font-size: 1rem;
   margin-bottom: 1rem;
   color: #374151;
