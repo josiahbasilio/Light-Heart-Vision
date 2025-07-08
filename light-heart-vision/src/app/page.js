@@ -3,24 +3,56 @@
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Stars from "@/components/stars"; // ✅ NEW: Import Stars component
+import Stars from "@/components/stars";
 
 export default function Home() {
-  // ---------------------
-  // STATE
-  // ---------------------
-  const [videoVisible, setVideoVisible] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [introComplete, setIntroComplete] = useState(false);
 
-  // ---------------------
-  // EVENT HANDLERS
-  // ---------------------
-  const showVideo = () => setVideoVisible(true);
-  const toggleModal = () => setShowModal(!showModal);
+  // Background color scroll transition
+  useEffect(() => {
+    const lerp = (a, b, t) => a + (b - a) * t;
+    const hexToRgb = (hex) => {
+      const val = hex.replace("#", "");
+      return [
+        parseInt(val.substring(0, 2), 16),
+        parseInt(val.substring(2, 4), 16),
+        parseInt(val.substring(4, 6), 16),
+      ];
+    };
+    const rgbToHex = (r, g, b) =>
+      "#" +
+      [r, g, b]
+        .map((x) => {
+          const hex = Math.round(x).toString(16);
+          return hex.length === 1 ? "0" + hex : hex;
+        })
+        .join("");
 
-  // ---------------------
-  // EFFECT: Scroll animations & mouse-driven star movement
-  // ---------------------
+    const dark = hexToRgb("#1C1C4A");
+    const light = hexToRgb("#FDFDFD");
+
+    const onScroll = () => {
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
+      const scrollPos = window.scrollY;
+      const scrollRatio = Math.min(scrollPos / maxScroll, 1);
+      const blended = dark.map((d, i) => lerp(d, light[i], scrollRatio));
+      document.body.style.backgroundColor = rgbToHex(...blended);
+    };
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Heart intro animation
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIntroComplete(true);
+    }, 4000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Scroll animation & star motion
   useEffect(() => {
     const sections = document.querySelectorAll(".section");
     const observer = new IntersectionObserver(
@@ -49,7 +81,6 @@ export default function Home() {
     };
 
     window.addEventListener("mousemove", handleMouseMove);
-
     return () => {
       sections.forEach((section) => observer.unobserve(section));
       window.removeEventListener("mousemove", handleMouseMove);
@@ -57,35 +88,32 @@ export default function Home() {
     };
   }, []);
 
+  const toggleModal = () => setShowModal(!showModal);
+
   return (
     <div>
-       
-      {/* ==================================================
-          HEADER SECTION
-      ================================================== */}
-      <Header />
+      {/* ============================
+          GLOWING HEART IMAGE INTRO
+      ============================ */}
+      {!introComplete && (
+        <div className="heart-intro-overlay">
+          <div className="heart-image-wrapper">
+            <img src="/images/Light_Heart_Vision_Logo.png" alt="Light Heart Logo" />
+          </div>
+        </div>
+      )}
 
-      {/* ==================================================
-          STARS — Collectible Clickable Floating Stars
-      ================================================== */}
+      <Header />
       <Stars />
 
-      {/* ==================================================
-          HERO SECTION
-      ================================================== */}
       <section className="hero">
-        <h1 className="fade-in-title glow-text">
-          Welcome To Light Heart vision
-        </h1>
+        <h1 className="fade-in-title glow-text">Welcome To Light Heart Vision</h1>
         <p className="fade-in-text">Awaken Wonder; Inspire Change</p>
         <button className="cta-button fade-in-btn" onClick={toggleModal}>
           Join the Vision
         </button>
       </section>
- 
-      {/* ==================================================
-           MODAL POPUP FOR NEWSLETTER SIGNUP
-      ================================================== */}
+
       {showModal && (
         <div className="modal-overlay" onClick={toggleModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -101,47 +129,33 @@ export default function Home() {
               <input type="email" placeholder="Your email" required />
               <button type="submit">Let&apos;s Go!</button>
             </form>
-            <button className="close-modal" onClick={toggleModal}>
-              ×
-            </button>
+            <button className="close-modal" onClick={toggleModal}>×</button>
           </div>
         </div>
       )}
 
-      {/* ==================================================
-           VIDEO INTRO SECTION
-      ================================================== */}
       <section className="section video-section" id="about">
         <h2>Welcome to Light Heart Vision</h2>
         <p>
           We bring conscious creators together to imagine and build a better world.
         </p>
-        {!videoVisible ? (
-          <div className="video-placeholder" onClick={showVideo}>
-            ▶ Click to play intro video
-          </div>
-        ) : (
-          <div id="video-container" style={{ marginTop: "20px" }}>
-            <iframe
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-              style={{
-                width: "90%",
-                maxWidth: "640px",
-                height: "360px",
-                border: "none",
-                borderRadius: "10px",
-              }}
-              title="Intro Video"
-            ></iframe>
-          </div>
-        )}
+        <div id="video-container" style={{ marginTop: "20px" }}>
+          <iframe
+            src="https://www.youtube.com/embed/ksol37fUmvo"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+            style={{
+              width: "90%",
+              maxWidth: "640px",
+              height: "360px",
+              border: "none",
+              borderRadius: "10px",
+            }}
+            title="Intro Video"
+          ></iframe>
+        </div>
       </section>
 
-      {/* ==================================================
-           FEATURED CONTENT CARDS
-      ================================================== */}
       <section className="section featured-content">
         <h2>Featured Content</h2>
         <div className="cards">
@@ -154,52 +168,40 @@ export default function Home() {
             <div className="card-title">Events</div>
           </div>
           <div className="card" onClick={() => alert("Check Out Community")}>
-            <img src="/images/community.png" alt="Community" />
+            <img src="/images/blue_2.png" alt="Community" />
             <div className="card-title">Community</div>
           </div>
           <div className="card" onClick={() => alert("Check Out Blogs")}>
-            <img src="/images/blog.png" alt="Blog" />
+            <img src="/images/blue_1.png" alt="Blog" />
             <div className="card-title">Blog</div>
           </div>
         </div>
       </section>
 
-      {/* ==================================================
-           FLIP-CARD COMMUNITY HIGHLIGHTS
-      ================================================== */}
       <section className="section" id="community">
         <h2>🦋 Explore Our Universe 🦋</h2>
         <div className="card-container">
           <div className="flip-card">
             <div className="flip-card-inner">
               <div className="flip-card-front">🌍 Our Story</div>
-              <div className="flip-card-back">
-                Meet the hearts behind the vision and why we started.
-              </div>
+              <div className="flip-card-back">Meet the hearts behind the vision and why we started.</div>
             </div>
           </div>
           <div className="flip-card">
             <div className="flip-card-inner">
               <div className="flip-card-front">🎨 Creative Collabs</div>
-              <div className="flip-card-back">
-                Art jams, virtual circles, and co-creation magic await!
-              </div>
+              <div className="flip-card-back">Art jams, virtual circles, and co-creation magic await!</div>
             </div>
           </div>
           <div className="flip-card">
             <div className="flip-card-inner">
               <div className="flip-card-front">🌱 Events & Retreats</div>
-              <div className="flip-card-back">
-                Join us in sacred spaces for deep connection & growth.
-              </div>
+              <div className="flip-card-back">Join us in sacred spaces for deep connection & growth.</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ==================================================
-          SCROLL-TO-TOP BUTTON
-      ================================================== */}
       <button
         className="scroll-top"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -208,9 +210,6 @@ export default function Home() {
         ↑
       </button>
 
-      {/* ==================================================
-          FOOTER SECTION
-      ================================================== */}
       <Footer />
     </div>
   );
