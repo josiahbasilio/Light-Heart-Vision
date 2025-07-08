@@ -168,11 +168,11 @@ export default function Home() {
             <div className="card-title">Events</div>
           </div>
           <div className="card" onClick={() => alert("Check Out Community")}>
-            <img src="/images/blue_2.png" alt="Community" />
+            <img src="/images/community.png" alt="Community" />
             <div className="card-title">Community</div>
           </div>
           <div className="card" onClick={() => alert("Check Out Blogs")}>
-            <img src="/images/blue_1.png" alt="Blog" />
+            <img src="/images/blog.png" alt="Blog" />
             <div className="card-title">Blog</div>
           </div>
         </div>
