@@ -38,7 +38,7 @@ export default function HeartSpace() {
           </Link>
         </div>
 
-        <div className="discussion-section">
+        <div className="heartspace-welcome-banner">
           <h2>Welcome to the Heart Space 🫶</h2>
           <p>
             This is a space to connect, reflect, and co-create. Share ideas, ask

@@ -33,7 +33,7 @@ export default function Blog() {
           </Link>
         </div>
 
-        <div className="discussion-section">
+        <div className="blog-welcome-banner">
           <h2>Welcome to the Blog 📝</h2>
           <p>
             Discover community stories, reflections, and updates shared by

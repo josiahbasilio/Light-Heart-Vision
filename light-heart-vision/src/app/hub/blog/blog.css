@@ -134,8 +134,8 @@
 }
 
 /* ------------ Yellow Welcome Banner ------------ */
-.discussion-section {
-  background-color: #fef9c3; /* soft yellow */
+.blog-welcome-banner {
+  background-color: hsl(55, 97%, 88%); /* yellow */
   padding: 1.5rem;
   border-radius: 1rem;
   margin-top: 2rem;
@@ -143,30 +143,27 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
 }
 
-.discussion-section h2 {
+.blog-welcome-banner h2 {
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
   color: #1e293b;
 }
 
-.discussion-section p {
+.blog-welcome-banner p {
   font-size: 1rem;
   margin-bottom: 1rem;
   color: #374151;
 }
 
-.discussion-link {
-  text-decoration: none;
+.blog-welcome-banner .discussion-link {
   color: #8b5cf6;
-  font-weight: 500;
-  transition: color 0.2s ease;
 }
 
-.discussion-link:hover {
+.blog-welcome-banner .discussion-link:hover {
   color: #7c3aed;
-  text-decoration: underline;
 }
+
 
 /* ------------ Blog Card (Purple Left Border) ------------ */
 .blog-card {
@@ -206,12 +203,13 @@
   text-align: center;
 }
 
-.stat strong {
+.blog-stats .stat strong {
   font-size: 1.5rem;
-  color: #8b5cf6;
+  color: #8b5cf6; /* purple */
 }
 
-.stat span {
+.blog-stats .stat span {
   font-size: 0.875rem;
   color: #6b7280;
 }
+

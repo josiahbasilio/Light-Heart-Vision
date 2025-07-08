@@ -87,8 +87,8 @@
 }
 
 /* ------------ Discussion Section ------------ */
-.discussion-section {
-  background-color: #fcd5ce; /* warm peachy-pink */
+.heartspace-welcome-banner {
+  background-color: #fcd5ce; /* pink */
   padding: 1.5rem;
   border-radius: 1rem;
   margin-top: 2rem;
@@ -96,30 +96,27 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
 }
 
-.discussion-section h2 {
+.heartspace-welcome-banner h2 {
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
   color: #1e293b;
 }
 
-.discussion-section p {
+.heartspace-welcome-banner p {
   font-size: 1rem;
   margin-bottom: 1rem;
   color: #374151;
 }
 
-.discussion-link {
-  text-decoration: none;
-  color: #be185d; /* deep rose */
-  font-weight: 500;
-  transition: color 0.2s ease;
+.heartspace-welcome-banner .discussion-link {
+  color: #be185d;
 }
 
-.discussion-link:hover {
-  color: #9d174d; /* darker rose */
-  text-decoration: underline;
+.heartspace-welcome-banner .discussion-link:hover {
+  color: #9d174d;
 }
+
 
 /* ------------ Guidelines Card ------------ */
 .guidelines-card {
@@ -165,16 +162,17 @@
   text-align: center;
 }
 
-.stat {
+.guidelines-stats .stat {
   font-size: 0.9rem;
   color: #6b7280;
 }
 
-.stat strong {
+.guidelines-stats .stat strong {
   display: block;
   font-size: 1.5rem;
-  color: #be185d;
+  color: #be185d; /* deep rose for Heart Space */
 }
+
 
 /* ------------ Button Style for Submit & Cancel ------------ */
 .topic-button {
