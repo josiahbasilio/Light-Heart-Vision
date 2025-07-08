@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Stars from "@/components/stars"; // ✅ NEW: Import Stars component
 
 export default function Home() {
   // ---------------------
@@ -10,16 +11,16 @@ export default function Home() {
   // ---------------------
   const [videoVisible, setVideoVisible] = useState(false);
   const [showModal, setShowModal] = useState(false);
+
   // ---------------------
   // EVENT HANDLERS
   // ---------------------
-
   const showVideo = () => setVideoVisible(true);
   const toggleModal = () => setShowModal(!showModal);
+
   // ---------------------
   // EFFECT: Scroll animations & mouse-driven star movement
   // ---------------------
-
   useEffect(() => {
     const sections = document.querySelectorAll(".section");
     const observer = new IntersectionObserver(
@@ -40,14 +41,10 @@ export default function Home() {
     const handleMouseMove = (e) => {
       if (animationFrame) cancelAnimationFrame(animationFrame);
       animationFrame = requestAnimationFrame(() => {
-        document
-          .querySelectorAll(".floating-shape .move-with-mouse")
-          .forEach((el, i) => {
-            const offset = (i + 1) * 10;
-            el.style.transform = `translate(${e.clientX / offset}px, ${
-              e.clientY / offset
-            }px)`;
-          });
+        document.querySelectorAll(".floating-shape .move-with-mouse").forEach((el, i) => {
+          const offset = (i + 1) * 10;
+          el.style.transform = `translate(${e.clientX / offset}px, ${e.clientY / offset}px)`;
+        });
       });
     };
 
@@ -62,32 +59,30 @@ export default function Home() {
 
   return (
     <div>
+       
       {/* ==================================================
           HEADER SECTION
       ================================================== */}
       <Header />
 
       {/* ==================================================
-          HERO SECTION WITH FLOATING STARS & CTA
+          STARS — Collectible Clickable Floating Stars
+      ================================================== */}
+      <Stars />
+
+      {/* ==================================================
+          HERO SECTION
       ================================================== */}
       <section className="hero">
-        {["star-1", "star-2", "star-3"].map((star, i) => (
-          <div key={i} className={`floating-shape ${star}`}>
-            <div className="move-with-mouse">
-              <img src="/images/star.png" alt="star" />
-            </div>
-          </div>
-        ))}
-
         <h1 className="fade-in-title glow-text">
-          Awaken Wonder. Inspire Change
+          Welcome To Light Heart vision
         </h1>
-        <p className="fade-in-text">Connect ~ Community ~ Co-Creation</p>
+        <p className="fade-in-text">Awaken Wonder; Inspire Change</p>
         <button className="cta-button fade-in-btn" onClick={toggleModal}>
           Join the Vision
         </button>
       </section>
-
+ 
       {/* ==================================================
            MODAL POPUP FOR NEWSLETTER SIGNUP
       ================================================== */}
@@ -119,8 +114,7 @@ export default function Home() {
       <section className="section video-section" id="about">
         <h2>Welcome to Light Heart Vision</h2>
         <p>
-          We bring conscious creators together to imagine and build a better
-          world.
+          We bring conscious creators together to imagine and build a better world.
         </p>
         {!videoVisible ? (
           <div className="video-placeholder" onClick={showVideo}>
@@ -155,17 +149,14 @@ export default function Home() {
             <img src="/images/course.png" alt="Courses" />
             <div className="card-title">Courses</div>
           </div>
-
           <div className="card" onClick={() => alert("See Upcoming Events")}>
             <img src="/images/events.png" alt="Events" />
             <div className="card-title">Events</div>
           </div>
-
           <div className="card" onClick={() => alert("Check Out Community")}>
             <img src="/images/community.png" alt="Community" />
             <div className="card-title">Community</div>
           </div>
-
           <div className="card" onClick={() => alert("Check Out Blogs")}>
             <img src="/images/blog.png" alt="Blog" />
             <div className="card-title">Blog</div>

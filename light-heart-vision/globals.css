@@ -92,9 +92,24 @@ html, body {
   pointer-events: none;
 }
 
-.star-1 { top: 20%; left: 10%; animation-delay: 0s; }
-.star-2 { top: 50%; left: 80%; animation-delay: 1s; }
-.star-3 { top: 75%; left: 25%; animation-delay: 2s; }
+.star-1 {
+  top: 120px;  /* Use px or vh to spread vertically */
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.star-2 {
+  top: 800px;
+  left: 80%;
+  animation-delay: 1s;
+}
+
+.star-3 {
+  top: 1500px;
+  left: 25%;
+  animation-delay: 2s;
+}
+
 
 @keyframes float {
   0% { transform: translateY(0); }
