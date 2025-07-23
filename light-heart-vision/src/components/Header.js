@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image"; // ✅ Added for using logo image
+import Image from "next/image";
 
 export default function Header() {
   return (
@@ -9,41 +9,31 @@ export default function Header() {
         <nav className="nav-bar">
           <div className="nav-inner">
             <div className="nav-left">
-              {/* ✅ REPLACED TEXT LOGO WITH IMAGE LOGO */}
               <Link href="/" passHref legacyBehavior>
                 <a className="logo-image-link">
                   <Image
-                    src="/images/Light_Heart_Vision_Logo.png" // ✅ Your glowing heart logo image
+                    src="/images/Light_Heart_Vision_Logo.png"
                     alt="Light Heart Vision Logo"
                     width={55}
                     height={55}
-                    className="glow-logo" // ✅ CSS hover effect
+                    className="glow-logo"
                     priority
                   />
                 </a>
               </Link>
             </div>
 
-            {/* Center Navigation Links */}
+            {/* ***** THIS IS THE FIX ***** */}
+            {/* Center Navigation Links now use <Link> for better performance and have correct paths */}
             <ul className="nav-center">
-              <li>
-                <a href="/hub">Community</a>
-              </li>
-              <li>
-                <a href="/courses">Courses</a>
-              </li>
-              <li>
-                <a href="/aboutUs">About</a>
-              </li>
-              <li>
-                <a href="#events">Events</a>
-              </li>
-              <li>
-                <a href="#contact">Contact Us</a>
-              </li>
+              <li><Link href="/hub">Community</Link></li>
+              <li><Link href="/courses">Courses</Link></li>
+              <li><Link href="/aboutUs">About</Link></li>
+              {/* Corrected path for Events to point to the actual page location */}
+              <li><Link href="/hub/events-calendar">Events</Link></li>
+              <li><Link href="/contact">Contact Us</Link></li>
             </ul>
 
-            {/* Right Section: Sign In Button */}
             <div
               className="nav-right"
               style={{ display: "flex", alignItems: "center", gap: "12px" }}
@@ -62,6 +52,7 @@ export default function Header() {
 
         {/* Embedded Styles */}
         <style jsx>{`
+          /* ... (your existing CSS - no changes needed here) ... */
           header {
             background: #ffffffcc;
             position: fixed;
@@ -98,7 +89,6 @@ export default function Header() {
             justify-content: flex-start;
           }
 
-          /* ✅ NEW: Logo image styling */
           .glow-logo {
             transition: transform 0.3s ease, filter 0.3s ease;
           }
@@ -119,14 +109,15 @@ export default function Header() {
             flex: 2;
           }
 
-          .nav-center li a {
+          /* Styling for Link components in the nav */
+          .nav-center li a, .nav-center li :global(a) {
             text-decoration: none;
             color: #993333;
             font-weight: 600;
             position: relative;
           }
 
-          .nav-center li a::after {
+          .nav-center li a::after, .nav-center li :global(a)::after {
             content: "";
             display: block;
             height: 2px;
@@ -136,7 +127,7 @@ export default function Header() {
             transform-origin: left;
           }
 
-          .nav-center li a:hover::after {
+          .nav-center li a:hover::after, .nav-center li :global(a):hover::after {
             transform: scaleX(1);
           }
 

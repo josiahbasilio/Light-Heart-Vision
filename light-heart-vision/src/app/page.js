@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Stars from "@/components/stars";
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
@@ -11,6 +13,7 @@ export default function Home() {
 
   // Background color scroll transition
   useEffect(() => {
+    // ... (your existing useEffect code for background color - no changes needed here)
     const lerp = (a, b, t) => a + (b - a) * t;
     const hexToRgb = (hex) => {
       const val = hex.replace("#", "");
@@ -46,6 +49,7 @@ export default function Home() {
 
   // Heart intro animation
   useEffect(() => {
+    // ... (your existing useEffect code for intro animation - no changes needed here)
     const timer = setTimeout(() => {
       setIntroComplete(true);
     }, 4000);
@@ -54,6 +58,7 @@ export default function Home() {
 
   // Scroll animation & star motion
   useEffect(() => {
+    // ... (your existing useEffect code for animations - no changes needed here)
     const sections = document.querySelectorAll(".section");
     const observer = new IntersectionObserver(
       (entries) => {
@@ -84,21 +89,27 @@ export default function Home() {
     return () => {
       sections.forEach((section) => observer.unobserve(section));
       window.removeEventListener("mousemove", handleMouseMove);
-      cancelAnimationFrame(animationFrame);
+      if (animationFrame) cancelAnimationFrame(animationFrame);
     };
   }, []);
 
   const toggleModal = () => setShowModal(!showModal);
+  
+  // ***** THIS IS THE FIX *****
+  const featuredCards = [
+    { title: 'Courses', path: '/courses', imgSrc: '/images/course.png', alt: 'Illustration for Courses' },
+    // Corrected path for Events to point to the actual page location
+    { title: 'Events', path: '/hub/events-calendar', imgSrc: '/images/events.png', alt: 'Illustration for Events' },
+    { title: 'Community', path: '/hub', imgSrc: '/images/community.png', alt: 'Illustration for Community' },
+    { title: 'Blog', path: '/blog', imgSrc: '/images/blog.png', alt: 'Illustration for Blog' }
+  ];
 
   return (
     <div>
-      {/* ============================
-          GLOWING HEART IMAGE INTRO
-      ============================ */}
       {!introComplete && (
         <div className="heart-intro-overlay">
           <div className="heart-image-wrapper">
-            <img src="/images/Light_Heart_Vision_Logo.png" alt="Light Heart Logo" />
+            <Image src="/images/Light_Heart_Vision_Logo.png" alt="Light Heart Logo" width={200} height={200} priority />
           </div>
         </div>
       )}
@@ -107,6 +118,7 @@ export default function Home() {
       <Stars />
 
       <section className="hero">
+        {/* ... (rest of your hero section JSX - no changes needed here) ... */}
         <h1 className="fade-in-title glow-text">Welcome To Light Heart Vision</h1>
         <p className="fade-in-text">Awaken Wonder; Inspire Change</p>
         <button className="cta-button fade-in-btn" onClick={toggleModal}>
@@ -116,16 +128,11 @@ export default function Home() {
 
       {showModal && (
         <div className="modal-overlay" onClick={toggleModal}>
+          {/* ... (rest of your modal JSX - no changes needed here) ... */}
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <h2>✨ Join the Vision</h2>
             <p>Subscribe to stay connected with Light Heart Vision!</p>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                alert("You're in! 🌟");
-                setShowModal(false);
-              }}
-            >
+            <form onSubmit={(e) => { e.preventDefault(); alert("You're in! 🌟"); setShowModal(false); }}>
               <input type="email" placeholder="Your email" required />
               <button type="submit">Let&apos;s Go!</button>
             </form>
@@ -135,50 +142,45 @@ export default function Home() {
       )}
 
       <section className="section video-section" id="about">
+        {/* ... (rest of your video section JSX - no changes needed here) ... */}
         <h2>Welcome to Light Heart Vision</h2>
-        <p>
-          We bring conscious creators together to imagine and build a better world.
-        </p>
+        <p>We bring conscious creators together to imagine and build a better world.</p>
         <div id="video-container" style={{ marginTop: "20px" }}>
           <iframe
             src="https://www.youtube.com/embed/ksol37fUmvo"
-            allow="autoplay; encrypted-media"
-            allowFullScreen
-            style={{
-              width: "90%",
-              maxWidth: "640px",
-              height: "360px",
-              border: "none",
-              borderRadius: "10px",
-            }}
+            allow="autoplay; encrypted-media" allowFullScreen
+            style={{ width: "90%", maxWidth: "640px", height: "360px", border: "none", borderRadius: "10px" }}
             title="Intro Video"
           ></iframe>
         </div>
       </section>
 
-      <section className="section featured-content">
-        <h2>Featured Content</h2>
+      <section className="section featured-content" aria-labelledby="featured-title">
+        <h2 id="featured-title">Featured Content</h2>
         <div className="cards">
-          <div className="card" onClick={() => alert("Explore Courses")}>
-            <img src="/images/course.png" alt="Courses" />
-            <div className="card-title">Courses</div>
-          </div>
-          <div className="card" onClick={() => alert("See Upcoming Events")}>
-            <img src="/images/events.png" alt="Events" />
-            <div className="card-title">Events</div>
-          </div>
-          <div className="card" onClick={() => alert("Check Out Community")}>
-            <img src="/images/community.png" alt="Community" />
-            <div className="card-title">Community</div>
-          </div>
-          <div className="card" onClick={() => alert("Check Out Blogs")}>
-            <img src="/images/blog.png" alt="Blog" />
-            <div className="card-title">Blog</div>
-          </div>
+          {featuredCards.map((card) => (
+            <Link key={card.title} href={card.path} passHref legacyBehavior>
+              <a className="card-link" aria-label={`Explore our ${card.title}`}>
+                <div className="card">
+                  <div className="card-image-wrapper">
+                    <Image
+                      src={card.imgSrc}
+                      alt={card.alt}
+                      layout="fill"
+                      objectFit="cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  </div>
+                  <div className="card-title">{card.title}</div>
+                </div>
+              </a>
+            </Link>
+          ))}
         </div>
       </section>
 
       <section className="section" id="community">
+        {/* ... (rest of your flip card section JSX - no changes needed here) ... */}
         <h2>🦋 Explore Our Universe 🦋</h2>
         <div className="card-container">
           <div className="flip-card">
@@ -202,13 +204,7 @@ export default function Home() {
         </div>
       </section>
 
-      <button
-        className="scroll-top"
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        aria-label="Scroll to top"
-      >
-        ↑
-      </button>
+      <button className="scroll-top" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="Scroll to top">↑</button>
 
       <Footer />
     </div>

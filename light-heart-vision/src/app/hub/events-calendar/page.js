@@ -38,7 +38,7 @@ const mockEvents = [
 const categories = ["All", "Community Events", "Workshop", "Meetups"];
 
 export default function EventsCalendar() {
-  const [selected, setSelected] = useState(null);
+  const [] = useState(null);
   const [filter, setFilter] = useState("All");
 
   const filteredEvents =
