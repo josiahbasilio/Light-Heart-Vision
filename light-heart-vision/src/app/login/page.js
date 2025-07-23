@@ -47,7 +47,7 @@ export default function LoginPage() {
       setPassword('');
 
       setTimeout(() => {
-        router.push('/dashboard');
+        router.push('/');
       }, 1500);
     }, 1000);
   };
