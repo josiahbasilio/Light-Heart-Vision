@@ -109,29 +109,10 @@ export default function Home() {
 
   return (
     <div>
-<<<<<<< HEAD
-      {/* ==================================================
-          HEADER SECTION
-      ================================================== */}
-      <Header />
-
-      {/* ==================================================
-          HERO SECTION WITH FLOATING STARS & CTA
-      ================================================== */}
-      <section className="hero">
-        {["star-1", "star-2", "star-3"].map((star, i) => (
-          <div key={i} className={`floating-shape ${star}`}>
-            <div className="move-with-mouse">
-              {/* ***** USE NEXT/IMAGE HERE ***** */}
-              {/* Assuming star.png is small, e.g., 50x50. Adjust as needed. */}
-              <Image src="/images/star.png" alt="star" width={50} height={50} />
-            </div>
-=======
       {!introComplete && (
         <div className="heart-intro-overlay">
           <div className="heart-image-wrapper">
             <Image src="/images/Light_Heart_Vision_Logo.png" alt="Light Heart Logo" width={200} height={200} priority />
->>>>>>> front
           </div>
         </div>
       )}
