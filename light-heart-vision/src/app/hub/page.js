@@ -10,42 +10,38 @@ export default function Hub() {
       icon: "📅",
       title: "Events",
       desc: "Upcoming community events, workshops, and meetups.",
-      href: "/hub/events-calendar", // This is important, links to events calendar page.
+      href: "/hub/events-calendar",
     },
     {
       icon: "🫶",
       title: "Heart Space",
       desc: "Connect, reflect, and co-create through meaningful community conversations.",
-      href: "/hub/heart-space", // This is important, links to heartspace page.
+      href: "/hub/heart-space",
     },
     {
       icon: "📚",
       title: "Community Resources",
       desc: "Find guides, tools, and content shared by members.",
-      href: "/hub/community-resources", // This is important, links to community resource page.
+      href: "/hub/community-resources",
     },
     {
-      icon: "🧘‍♀️",
-      title: "Mindful Living",
-      desc: "Discover practices for peace, wellness, and connection.",
-      href: "/hub/mindful-living", // This is important, links to mindful-living page.
+      icon: "📝",
+      title: "Blog",
+      desc: "Read stories, reflections, and updates from our community.",
+      href: "/hub/blog",
     },
   ];
 
   return (
     <>
-      {/* Include Header */}
       <Header />
 
-      {/* ------- Main content ------- */}
       <main className="hub-main">
-        {/* Title */}
         <div className="hub-header">
           <h1>Community Hub</h1>
           <p className="hub-subtitle">Search. Share. Support.</p>
         </div>
 
-        {/* Breadcrumb */}
         <div className="hub-breadcrumb">
           You are here →{" "}
           <Link href="/" className="hub-link">
@@ -54,19 +50,16 @@ export default function Hub() {
           / Community Hub
         </div>
 
-        {/* Search Content*/}
         <div className="hub-search-container">
           <input type="text" placeholder="Search all content" />
           <button>🔍</button>
         </div>
 
-        {/* Tabs */}
         <section className="hub-buttons">
           <button className="active">❓ FAQs</button>
           <button className="secondary">📂 Help Categories</button>
         </section>
 
-        {/* Cards */}
         <section className="hub-grid">
           {categories.map((cat, idx) => (
             <Link key={idx} href={cat.href || "#"} className="hub-card-link">
@@ -79,9 +72,7 @@ export default function Hub() {
           ))}
         </section>
       </main>
-      {/* ------- Main content ------- */}
 
-      {/* Include Footer */}
       <Footer />
     </>
   );

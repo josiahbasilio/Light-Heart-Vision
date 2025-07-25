@@ -7,16 +7,13 @@ import Footer from "@/components/Footer";
 export default function HeartSpace() {
   return (
     <>
-      {/* Include Header */}
       <Header />
 
-      {/* ------- Main content ------- */}
       <main className="heartspace-main">
         <div className="heartspace-header">
           <h1>Heart Space</h1>
         </div>
 
-        {/* Breadcrumb */}
         <div className="hub-breadcrumb">
           You are here →{" "}
           <Link href="/" className="hub-link">
@@ -26,10 +23,9 @@ export default function HeartSpace() {
           <Link href="/hub" className="hub-link">
             Community Hub
           </Link>{" "}
-          / HeartSpace
+          / Heart Space
         </div>
 
-        {/* Search Bar */}
         <div className="hub-search-container">
           <input type="text" placeholder="Search all content" />
           <button>🔍</button>
@@ -37,23 +33,25 @@ export default function HeartSpace() {
 
         {/* Start a Topic Button */}
         <div className="start-topic-btn">
-          <button>START A TOPIC</button>
+          <Link href="/hub/heart-space/start-topic">
+            <button>START A TOPIC</button>
+          </Link>
         </div>
 
-        {/* Discussion Section */}
-        <div className="discussion-section">
+        <div className="heartspace-welcome-banner">
           <h2>Welcome to the Heart Space 🫶</h2>
           <p>
             This is a space to connect, reflect, and co-create. Share ideas, ask
             questions, and take part in conscious conversations that inspire
             growth and community support.
           </p>
-          <Link href="/heartspace/topics" className="discussion-link">
+          {/* ✅ Fixed routing to Explore Topics */}
+          <Link href="/hub/heart-space/topics" className="discussion-link">
             Explore topics & join the conversation →
           </Link>
         </div>
 
-        {/* Guidelines Card Section */}
+        {/* Guidelines Card */}
         <div className="guidelines-card">
           <div className="guidelines-content">
             <h3>[Guidelines] Heart Space</h3>
@@ -78,9 +76,7 @@ export default function HeartSpace() {
           </div>
         </div>
       </main>
-      {/* ------- Main content ------- */}
 
-      {/* Include Footer */}
       <Footer />
     </>
   );

@@ -1,15 +1,8 @@
 'use client';
 import React, { useState, useEffect, useCallback } from 'react';
-import Head from 'next/head';
 import Image from 'next/image';
 import './about.css';
-// import Header from '@/components/Header';
-// import Footer from '@/components/Footer';
-
-const DEFAULT_FOUNDER_IMAGE = '/images/placeholder-founder.png';
-const DEFAULT_TEAM_IMAGE = '/images/placeholder-team.png';
-const DEFAULT_ICON = '/icons/placeholder-icon.svg';
-const DEFAULT_INTRO_IMAGE = '/images/placeholder-dragon.png';
+import Header from "@/components/Header";
 
 export default function AboutPage() {
   const founderImages = [
@@ -36,11 +29,21 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <>
-      <Head>
-        <title>About Us - Light Heart Vision</title>
-        <meta name="description" content="Learn about Light Heart Vision, our mission, our team, and what drives us." />
-      </Head>
+    <div className="about-wrapper">
+      <Header/>
+      {/* 💡 Intro Section */}
+      <section className="about-intro">
+        <div className="intro-content">
+          <h1>Welcome to Light Heart Vision 🌟</h1>
+          <p>
+            Where passion meets purpose. We blend creativity, technology, and human connection
+            to create soulful digital experiences that inspire and unite.
+          </p>
+        </div>
+        <div className="intro-image">
+          <img src="/images/dragon.png" alt="Vision Illustration" />
+        </div>
+      </section>
 
       {/* <Header /> */}
 
@@ -166,6 +169,6 @@ export default function AboutPage() {
       <footer className="about-footer new-footer">
         <p>© {new Date().getFullYear()} Light Heart Vision — Designed with care & soul 💛</p>
       </footer>
-    </>
+    </div>
   );
 }
