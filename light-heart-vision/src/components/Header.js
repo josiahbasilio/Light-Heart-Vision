@@ -1,8 +1,11 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import { useSession, signOut } from "next-auth/react";
 
 export default function Header() {
+  const { data: session } = useSession();
+
   return (
     <>
       <header>
@@ -26,31 +29,53 @@ export default function Header() {
             {/* ***** THIS IS THE FIX ***** */}
             {/* Center Navigation Links now use <Link> for better performance and have correct paths */}
             <ul className="nav-center">
-              <li><Link href="/hub">Community</Link></li>
-              <li><Link href="/courses">Courses</Link></li>
-              <li><Link href="/aboutUs">About</Link></li>
+              <li>
+                <Link href="/hub">Community</Link>
+              </li>
+              <li>
+                <Link href="/courses">Courses</Link>
+              </li>
+              <li>
+                <Link href="/aboutUs">About</Link>
+              </li>
               {/* Corrected path for Events to point to the actual page location */}
-              <li><Link href="/hub/events-calendar">Events</Link></li>
-              <li><Link href="/contact">Contact Us</Link></li>
+              <li>
+                <Link href="/hub/events-calendar">Events</Link>
+              </li>
+              <li>
+                <Link href="/contact">Contact Us</Link>
+              </li>
             </ul>
 
             <div
               className="nav-right"
               style={{ display: "flex", alignItems: "center", gap: "12px" }}
             >
-              <Link href="/signUp" passHref legacyBehavior>
-                <a className="signInLink">
-                  <div className="signIn">
+              {session?.user ? (
+                <div className="signInLink">
+                  <div
+                    className="signIn"
+                    onClick={() => signOut()}
+                    style={{ cursor: "pointer" }}
+                  >
                     <span className="icon">👤</span>
-                    <span className="label">Sign Up</span>
+                    <span className="label">{session.user.username}</span>
                   </div>
-                </a>
-              </Link>
+                </div>
+              ) : (
+                <Link href="/login" passHref legacyBehavior>
+                  <a className="signInLink">
+                    <div className="signIn">
+                      <span className="icon">👤</span>
+                      <span className="label">Sign Up</span>
+                    </div>
+                  </a>
+                </Link>
+              )}
             </div>
           </div>
         </nav>
 
-        {/* Embedded Styles */}
         <style jsx>{`
           /* ... (your existing CSS - no changes needed here) ... */
           header {
@@ -110,14 +135,16 @@ export default function Header() {
           }
 
           /* Styling for Link components in the nav */
-          .nav-center li a, .nav-center li :global(a) {
+          .nav-center li a,
+          .nav-center li :global(a) {
             text-decoration: none;
             color: #993333;
             font-weight: 600;
             position: relative;
           }
 
-          .nav-center li a::after, .nav-center li :global(a)::after {
+          .nav-center li a::after,
+          .nav-center li :global(a)::after {
             content: "";
             display: block;
             height: 2px;
@@ -127,7 +154,8 @@ export default function Header() {
             transform-origin: left;
           }
 
-          .nav-center li a:hover::after, .nav-center li :global(a):hover::after {
+          .nav-center li a:hover::after,
+          .nav-center li :global(a):hover::after {
             transform: scaleX(1);
           }
 
