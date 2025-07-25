@@ -3,11 +3,8 @@
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-<<<<<<< HEAD
-=======
 import Stars from "@/components/stars";
 import Link from 'next/link';
->>>>>>> front
 import Image from 'next/image';
 
 export default function Home() {
@@ -147,60 +144,6 @@ export default function Home() {
       <section className="section video-section" id="about">
         {/* ... (rest of your video section JSX - no changes needed here) ... */}
         <h2>Welcome to Light Heart Vision</h2>
-<<<<<<< HEAD
-        <p>
-          We bring conscious creators together to imagine and build a better
-          world.
-        </p>
-        {!videoVisible ? (
-          <div className="video-placeholder" onClick={showVideo}>
-            ▶ Click to play intro video
-          </div>
-        ) : (
-          <div id="video-container" style={{ marginTop: "20px" }}>
-            <iframe
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-              style={{
-                width: "90%",
-                maxWidth: "640px",
-                height: "360px",
-                border: "none",
-                borderRadius: "10px",
-              }}
-              title="Intro Video"
-            ></iframe>
-          </div>
-        )}
-      </section>
-
-      {/* ==================================================
-           FEATURED CONTENT CARDS
-      ================================================== */}
-      <section className="section featured-content">
-        <h2>Featured Content</h2>
-        <div className="cards">
-          <div className="card" onClick={() => alert("Explore Courses")}>
-            <Image src="/images/course.png" alt="Courses" width={150} height={100} />
-            <div className="card-title">Courses</div>
-          </div>
-
-          <div className="card" onClick={() => alert("See Upcoming Events")}>
-            <Image src="/images/events.png" alt="Events" width={150} height={100} />
-            <div className="card-title">Events</div>
-          </div>
-
-          <div className="card" onClick={() => alert("Check Out Community")}>
-            <Image src="/images/community.png" alt="Community" width={150} height={100} />
-            <div className="card-title">Community</div>
-          </div>
-
-          <div className="card" onClick={() => alert("Check Out Blogs")}>
-            <Image src="/images/blog.png" alt="Blog" width={150} height={100} />
-            <div className="card-title">Blog</div>
-          </div>
-=======
         <p>We bring conscious creators together to imagine and build a better world.</p>
         <div id="video-container" style={{ marginTop: "20px" }}>
           <iframe
@@ -233,7 +176,6 @@ export default function Home() {
               </a>
             </Link>
           ))}
->>>>>>> front
         </div>
       </section>
 
@@ -255,15 +197,8 @@ export default function Home() {
           </div>
           <div className="flip-card">
             <div className="flip-card-inner">
-<<<<<<< HEAD
-              <div className="flip-card-front">🌱 Events & Retreats</div> {/* Fixed unescaped entity */}
-              <div className="flip-card-back">
-                Join us in sacred spaces for deep connection & growth. {/* Fixed unescaped entity */}
-              </div>
-=======
               <div className="flip-card-front">🌱 Events & Retreats</div>
               <div className="flip-card-back">Join us in sacred spaces for deep connection & growth.</div>
->>>>>>> front
             </div>
           </div>
         </div>
