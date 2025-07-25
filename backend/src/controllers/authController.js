@@ -4,15 +4,12 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 exports.signup = async (req, res) => {
-    // This is our most important debugging tool.
-    // If you don't see this log, the request isn't even reaching this function.
-    console.log("--- Signup request received ---");
-    console.log("Request body:", req.body); 
+    // --- CHANGE 1: Expect 'username' from the request body ---
+    const { username, email, password } = req.body;
 
-    const { email, password } = req.body;
-
-    if (!email || !password) {
-        return res.status(400).json({ message: 'Email and password are required' });
+    // --- CHANGE 2: Add validation for 'username' ---
+    if (!username || !email || !password) {
+        return res.status(400).json({ message: 'Username, email and password are required' });
     }
     if (password.length < 6) {
         return res.status(400).json({ message: 'Password must be at least 6 characters long' });
@@ -21,28 +18,35 @@ exports.signup = async (req, res) => {
     try {
         const existingUser = await db.query('SELECT * FROM users WHERE email = $1', [email]);
         if (existingUser.rows.length > 0) {
-            console.log("User already exists:", email);
             return res.status(409).json({ message: 'Email already in use.' });
+        }
+
+        // (Optional check for unique username)
+        const existingUsername = await db.query('SELECT * FROM users WHERE username = $1', [username]);
+        if (existingUsername.rows.length > 0) {
+            return res.status(409).json({ message: 'Username is already taken.' });
         }
 
         const hashPass = await bcrypt.hash(password, saltRounds);
 
+        // --- CHANGE 3: Update the INSERT query ---
         const newUser = await db.query(
-           'INSERT INTO users (email, password_hash) VALUES ($1, $2) RETURNING id, email, created_at',
-            [email, hashPass]
+           'INSERT INTO users (username, email, password_hash) VALUES ($1, $2, $3) RETURNING id, username, email, created_at',
+            [username, email, hashPass] // Add 'username' to the parameters array
         );
         
-        console.log('User created successfully:', newUser.rows[0]);
-        return res.status(201).json({
+        console.log('User created:', newUser.rows[0]);
+        res.status(201).json({
             message: 'User created successfully!',
             user: newUser.rows[0]
         });
     } catch (error) {
-        console.error('--- DATABASE OR BCRYPT ERROR IN SIGNUP ---', error);
-        return res.status(500).json({ message: 'Internal server error during signup.' });
+        console.error('Signup Error:', error);
+        res.status(500).json({ message: 'Internal server error during signup.' });
     }
 };
 
+// --- NO CHANGES NEEDED FOR LOGIN ---
 exports.login = async (req, res) => {
     const { email, password } = req.body;
 
@@ -65,6 +69,7 @@ exports.login = async (req, res) => {
             message: 'Login successful',
             user: {
                 id: user.id,
+                username: user.username, // Also return the username on login
                 email: user.email,
                 created_at: user.created_at
             }

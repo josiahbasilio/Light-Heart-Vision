@@ -64,22 +64,26 @@ export default function SignUpPage() {
       const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
       const apiUrl = `${backendUrl}/api/auth/signup`; // Correct lowercase 'signup'
 
+      const requestBody = {
+        username: form.name,
+        email: form.email,
+        password: form.password,
+      };
+
+      console.log("Sending data:", JSON.stringify(requestBody));
+
       const res = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          email: form.email,
-          password: form.password,
-        }),
+        body: JSON.stringify(requestBody), // Use the new requestBody object
       });
 
       const data = await res.json();
 
       if (!res.ok) {
-        // Use the error message from the backend
-        throw new Error(data.message || 'An unknown error occurred.');
+        throw new Error(data.message || `Error: ${res.status} - ${res.statusText}`);
       }
 
       // Success!
