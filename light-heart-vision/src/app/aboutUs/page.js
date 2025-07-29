@@ -32,7 +32,7 @@ export default function AboutPage() {
     <div className="about-wrapper">
       <Header/>
       {/* 💡 Intro Section */}
-      <section className="about-intro">
+      {/* <section className="about-intro">
         <div className="intro-content">
           <h1>Welcome to Light Heart Vision 🌟</h1>
           <p>
@@ -43,7 +43,7 @@ export default function AboutPage() {
         <div className="intro-image">
           <Image src="/images/some-image.png" alt="Description" width={500} height={300} />
         </div>
-      </section>
+      </section> */}
 
       {/* <Header /> */}
 
