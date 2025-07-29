@@ -64,7 +64,7 @@
   line-height: 1.6;
 }
 
-/* 🌈 Features Grid */
+/* 🌈 Features Grid (Icons on Top) */
 .features-grid {
   padding: 60px 20px;
   background: #fffaf7;
@@ -77,42 +77,46 @@
   margin-bottom: 40px;
 }
 
-.grid {
+.features-grid .grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
   justify-content: center;
+  gap: 30px;
 }
 
 .feature-card {
   background: #fff;
   border: 2px solid #ffe3ee;
-  padding: 20px;
+  padding: 25px;
   width: 260px;
   border-radius: 18px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
-}
-
-.feature-card img {
-  width: 50px;
-  margin-bottom: 15px;
+.feature-card img.feature-icon {
+  display: block;
+  width: 80px;
+  height: auto;
+  margin: 0 auto 15px;
+  object-fit: contain;
 }
 
 .feature-card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 8px;
+  font-size: 1.4rem;
   color: #aa2961;
+  margin-bottom: 10px;
 }
 
 .feature-card p {
   font-size: 1rem;
   color: #555;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 /* 🧑‍🤝‍🧑 Team Section */
@@ -167,8 +171,7 @@
   color: #666;
 }
 
-
-/* 👩‍🚀 Founders Section (Circular Image Only + Crossfade) */
+/* 👩‍🚀 Founders Section */
 .founders-section {
   padding: 60px 20px;
   background: linear-gradient(to top, #fff5fa, #fff);
@@ -196,7 +199,6 @@
   margin: 0 auto;
 }
 
-/* All images stacked on top of each other */
 .founder-card img {
   position: absolute;
   top: 0;
@@ -212,13 +214,10 @@
   z-index: 0;
 }
 
-/* Show the active one */
 .founder-card img.visible {
   opacity: 1;
   z-index: 1;
 }
-
-
 
 /* 💌 Newsletter Box */
 .newsletter-box.fancy {

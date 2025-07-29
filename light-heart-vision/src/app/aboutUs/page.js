@@ -19,10 +19,10 @@ export default function AboutPage() {
     return () => clearInterval(interval);
   }, []);
 
-  
   return (
     <div className="about-wrapper">
-      <Header/>
+      <Header />
+
       {/* 💡 Intro Section */}
       <section className="about-intro">
         <div className="intro-content">
@@ -55,46 +55,47 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 🌈 Features Grid */}
+      {/* 🌈 Features Grid (Icons on Top) */}
       <section className="features-grid">
         <h2>What We Offer</h2>
         <div className="grid">
-          <div className="feature-card">
-            <img src="/icons/creative.svg" alt="Creative" />
+          <div className="feature-card hover-effect">
+            <img src="/images/creative.png" alt="Creative Campaigns" className="feature-icon" />
             <h3>Creative Campaigns</h3>
             <p>We build campaigns that capture attention and spark emotion.</p>
           </div>
-          <div className="feature-card">
-            <img src="/icons/events.png" alt="Community" />
+
+          <div className="feature-card hover-effect">
+            <img src="/images/communitybuilding.png" alt="Community Building" className="feature-icon" />
             <h3>Community Building</h3>
             <p>Creating safe, vibrant spaces online and offline.</p>
           </div>
-          <div className="feature-card">
-            <img src="/icons/storytelling.svg" alt="Storytelling" />
+
+          <div className="feature-card hover-effect">
+            <img src="/images/storytelling.png" alt="Impactful Storytelling" className="feature-icon" />
             <h3>Impactful Storytelling</h3>
             <p>Stories that resonate and stay with you long after.</p>
           </div>
         </div>
       </section>
 
-{/* 👩‍🚀 Founders Section */}
-<section className="founders-section">
+      {/* 👩‍🚀 Founders Section */}
+      <section className="founders-section">
         <h2>👩‍🚀 Meet the Founders</h2>
         <p className="founders-intro">
           Light Heart Vision is led by Julia Zanon and Nathanial Parent — two visionary souls united by a shared purpose: 
           to inspire meaningful connection through creativity, compassion, and community.
         </p>
         <div className="founder-card image-fader">
-  {founderImages.map((img, index) => (
-    <img
-      key={index}
-      src={img}
-      alt={`Founder ${index + 1}`}
-      className={`fade-img ${index === currentImage ? 'visible' : ''}`}
-    />
-  ))}
-</div>
-
+          {founderImages.map((img, index) => (
+            <img
+              key={index}
+              src={img}
+              alt={`Founder ${index + 1}`}
+              className={`fade-img ${index === currentImage ? 'visible' : ''}`}
+            />
+          ))}
+        </div>
       </section>
 
       {/* 🧑‍🤝‍🧑 Team Section */}
@@ -117,18 +118,16 @@ export default function AboutPage() {
             <img src="/images/Sansita.jpg" alt="Sansita Pattnaik" />
             <h4>Sansita Pattnaik</h4>
             <p>Community Manager</p>
-            </div>
+          </div>
 
-            <div className="team-member">
+          <div className="team-member">
             <img src="/images/Dhara.jpg" alt="Dhara Patel" />
             <h4>Dhara Patel</h4>
             <p>Community Manager</p>
           </div>
-
         </div>
       </section>
 
-      
       {/* 📬 Newsletter */}
       <section className="newsletter-box fancy">
         <h2>Let’s Stay Connected 📬</h2>
