@@ -31,21 +31,6 @@ export default function AboutPage() {
   return (
     <div className="about-wrapper">
       <Header/>
-      {/* 💡 Intro Section */}
-      {/* <section className="about-intro">
-        <div className="intro-content">
-          <h1>Welcome to Light Heart Vision 🌟</h1>
-          <p>
-            Where passion meets purpose. We blend creativity, technology, and human connection
-            to create soulful digital experiences that inspire and unite.
-          </p>
-        </div>
-        <div className="intro-image">
-          <Image src="/images/some-image.png" alt="Description" width={500} height={300} />
-        </div>
-      </section> */}
-
-      {/* <Header /> */}
 
       <main className="about-wrapper">
         <section className="about-intro" aria-labelledby="about-intro-title">
@@ -88,17 +73,17 @@ export default function AboutPage() {
           <h2 id="features-title">What We Offer</h2>
           <div className="grid">
             <div className="feature-card">
-              <Image src="/icons/creative.svg" alt="" width={64} height={64} onError={(e) => e.currentTarget.src = DEFAULT_ICON} />
+              <Image src="/images/creative.png" alt="" width={64} height={64} onError={(e) => e.currentTarget.src = DEFAULT_ICON} />
               <h3>Creative Campaigns</h3>
               <p>We build campaigns that capture attention and spark emotion.</p>
             </div>
             <div className="feature-card">
-              <Image src="/icons/events.png" alt="" width={64} height={64} onError={(e) => e.currentTarget.src = DEFAULT_ICON} />
+              <Image src="/images/communitybuilding.png" alt="" width={64} height={64} onError={(e) => e.currentTarget.src = DEFAULT_ICON} />
               <h3>Community Building</h3>
               <p>Creating safe, vibrant spaces online and offline.</p>
             </div>
             <div className="feature-card">
-              <Image src="/icons/storytelling.svg" alt="" width={64} height={64} onError={(e) => e.currentTarget.src = DEFAULT_ICON} />
+              <Image src="/images/storytelling.png" alt="" width={64} height={64} onError={(e) => e.currentTarget.src = DEFAULT_ICON} />
               <h3>Impactful Storytelling</h3>
               <p>Stories that resonate and stay with you long after.</p>
             </div>
