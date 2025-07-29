@@ -26,6 +26,5 @@ next-env.d.ts
 
 .vercel
 
-*.pem
 
 helloWorld.html
