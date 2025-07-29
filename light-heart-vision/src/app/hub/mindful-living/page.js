@@ -1,5 +1,5 @@
 "use client";
-import "./mindful-living.css";
+//import "./mindful-living.css";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer"; // Assuming you want to add a Footer
