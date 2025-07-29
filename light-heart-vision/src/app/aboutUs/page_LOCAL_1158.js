@@ -31,7 +31,7 @@ export default function AboutPage() {
   return (
     <div className="about-wrapper">
       <Header/>
-      {/* 💡 Intro Section */}
+      💡 Intro Section
       {/* <section className="about-intro">
         <div className="intro-content">
           <h1>Welcome to Light Heart Vision 🌟</h1>
@@ -41,7 +41,7 @@ export default function AboutPage() {
           </p>
         </div>
         <div className="intro-image">
-          <Image src="/images/some-image.png" alt="Description" width={500} height={300} />
+          <img src="/images/dragon.png" alt="Vision Illustration" />
         </div>
       </section> */}
 
@@ -60,7 +60,7 @@ export default function AboutPage() {
             <Image
               src="/images/dragon.png"
               alt="Artistic illustration representing Light Heart Vision's ethos"
-              width={500} height={300} layout="responsive"
+              width={500} height={300}
               onError={(e) => e.currentTarget.src = DEFAULT_INTRO_IMAGE}
             />
           </div>

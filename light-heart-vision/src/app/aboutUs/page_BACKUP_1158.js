@@ -31,7 +31,11 @@ export default function AboutPage() {
   return (
     <div className="about-wrapper">
       <Header/>
+<<<<<<< HEAD
+      💡 Intro Section
+=======
       {/* 💡 Intro Section */}
+>>>>>>> origin
       {/* <section className="about-intro">
         <div className="intro-content">
           <h1>Welcome to Light Heart Vision 🌟</h1>
@@ -60,7 +64,11 @@ export default function AboutPage() {
             <Image
               src="/images/dragon.png"
               alt="Artistic illustration representing Light Heart Vision's ethos"
+<<<<<<< HEAD
+              width={500} height={300}
+=======
               width={500} height={300} layout="responsive"
+>>>>>>> origin
               onError={(e) => e.currentTarget.src = DEFAULT_INTRO_IMAGE}
             />
           </div>
