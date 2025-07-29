@@ -41,7 +41,7 @@ export default function AboutPage() {
           </p>
         </div>
         <div className="intro-image">
-          <img src="/images/dragon.png" alt="Vision Illustration" />
+          <Image src="/images/some-image.png" alt="Description" width={500} height={300} />
         </div>
       </section>
 

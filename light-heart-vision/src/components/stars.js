@@ -51,7 +51,7 @@ export default function Stars() {
 
   return (
     <>
-      {STAR_KEYS.map((key, index) => {
+      {STAR_KEYS.map((key) => {
         const style = {
           position: "absolute",
           width: "50px",
