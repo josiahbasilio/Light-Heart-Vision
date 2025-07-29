@@ -1,22 +1,21 @@
 
 require('dotenv').config();
 const fs = require('fs');
+const path = require('path'); 
 const { Pool } = require('pg');
 
 // Read the CA certificate file content
 // Ensure the path in DB_SSL_CA_PATH from .env is correct relative to where your app runs
+const caPath = path.resolve(__dirname, 'ca.pem');
 let caCert;
 try {
-    if (process.env.DB_SSL_CA_PATH) {
-        caCert = fs.readFileSync(process.env.DB_SSL_CA_PATH).toString();
-        console.log("CA Certificate loaded successfully.");
-    } else {
-        console.warn("DB_SSL_CA_PATH not defined in environment variables. SSL may not verify CA correctly.");
-    }
+    // Read the certificate file from the reliable path
+    caCert = fs.readFileSync(caPath).toString();
+    console.log("CA Certificate loaded successfully.");
 } catch (error) {
-    console.error("Error reading CA certificate file:", error);
-    // Decide how to handle this - maybe exit, maybe proceed without CA verification (insecure)
-    // For now, we'll let the pool creation potentially fail later if SSL is required.
+    console.error("!!! CRITICAL: Error reading CA certificate file:", error);
+    // In production, you might want to exit if the cert can't be loaded
+     process.exit(1); 
 }
 
 const pool = new Pool({
