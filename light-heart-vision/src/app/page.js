@@ -13,7 +13,6 @@ export default function Home() {
 
   // Background color scroll transition
   useEffect(() => {
-    // ... (your existing useEffect code for background color - no changes needed here)
     const lerp = (a, b, t) => a + (b - a) * t;
     const hexToRgb = (hex) => {
       const val = hex.replace("#", "");
@@ -49,7 +48,6 @@ export default function Home() {
 
   // Heart intro animation
   useEffect(() => {
-    // ... (your existing useEffect code for intro animation - no changes needed here)
     const timer = setTimeout(() => {
       setIntroComplete(true);
     }, 4000);
@@ -58,7 +56,6 @@ export default function Home() {
 
   // Scroll animation & star motion
   useEffect(() => {
-    // ... (your existing useEffect code for animations - no changes needed here)
     const sections = document.querySelectorAll(".section");
     const observer = new IntersectionObserver(
       (entries) => {
@@ -95,13 +92,14 @@ export default function Home() {
 
   const toggleModal = () => setShowModal(!showModal);
   
-  // ***** THIS IS THE FIX *****
+  // Data for the featured content cards
   const featuredCards = [
     { title: 'Courses', path: '/courses', imgSrc: '/images/course.png', alt: 'Illustration for Courses' },
-    // Corrected path for Events to point to the actual page location
     { title: 'Events', path: '/hub/events-calendar', imgSrc: '/images/events.png', alt: 'Illustration for Events' },
     { title: 'Community', path: '/hub', imgSrc: '/images/community.png', alt: 'Illustration for Community' },
-    { title: 'Blog', path: '/blog', imgSrc: '/images/blog.png', alt: 'Illustration for Blog' }
+    // ***** THIS IS THE FIX *****
+    // Corrected path for Blog to point to the actual page location
+    { title: 'Blog', path: '/hub/blog', imgSrc: '/images/blog.png', alt: 'Illustration for Blog' }
   ];
 
   return (
@@ -118,7 +116,6 @@ export default function Home() {
       <Stars />
 
       <section className="hero">
-        {/* ... (rest of your hero section JSX - no changes needed here) ... */}
         <h1 className="fade-in-title glow-text">Welcome To Light Heart Vision</h1>
         <p className="fade-in-text">Awaken Wonder; Inspire Change</p>
         <button className="cta-button fade-in-btn" onClick={toggleModal}>
@@ -128,7 +125,6 @@ export default function Home() {
 
       {showModal && (
         <div className="modal-overlay" onClick={toggleModal}>
-          {/* ... (rest of your modal JSX - no changes needed here) ... */}
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <h2>✨ Join the Vision</h2>
             <p>Subscribe to stay connected with Light Heart Vision!</p>
@@ -142,7 +138,6 @@ export default function Home() {
       )}
 
       <section className="section video-section" id="about">
-        {/* ... (rest of your video section JSX - no changes needed here) ... */}
         <h2>Welcome to Light Heart Vision</h2>
         <p>We bring conscious creators together to imagine and build a better world.</p>
         <div id="video-container" style={{ marginTop: "20px" }}>
@@ -180,7 +175,6 @@ export default function Home() {
       </section>
 
       <section className="section" id="community">
-        {/* ... (rest of your flip card section JSX - no changes needed here) ... */}
         <h2>🦋 Explore Our Universe 🦋</h2>
         <div className="card-container">
           <div className="flip-card">
@@ -197,8 +191,8 @@ export default function Home() {
           </div>
           <div className="flip-card">
             <div className="flip-card-inner">
-              <div className="flip-card-front">🌱 Events & Retreats</div>
-              <div className="flip-card-back">Join us in sacred spaces for deep connection & growth.</div>
+              <div className="flip-card-front">🌱 Events &amp; Retreats</div>
+              <div className="flip-card-back">Join us in sacred spaces for deep connection &amp; growth.</div>
             </div>
           </div>
         </div>
