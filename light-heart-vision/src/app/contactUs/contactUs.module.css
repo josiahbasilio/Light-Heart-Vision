@@ -1,0 +1,128 @@
+
+.main {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 48px 16px;
+  background: linear-gradient(180deg, #FDF0E4 0%, #FAE0D4 100%);
+}
+
+.card {
+  width: 100%;
+  max-width: 760px;
+  background: #fdfaf6;
+  border: 1px solid #f1f1f1;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.pill {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #ffe8d6;
+  color: #b85c38;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.h1 {
+  margin: 10px 0 6px;
+  font-size: 28px;
+  color: #111827;
+}
+
+.lead {
+  margin: 0;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 8px;
+  display: grid;
+  gap: 14px;
+}
+
+.item {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid #eef0f4;
+  border-radius: 12px;
+  background: #fcfdff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* All transitions handled by CSS */
+}
+
+/* This replaces the JavaScript-driven hover effect */
+.item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.10);
+}
+
+.icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.itemLabel {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.link {
+  display: inline-block;
+  color: #b85c38;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.ctaRow {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.primaryBtn {
+  background: #b85c38;
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+/* This replaces the JavaScript-driven hover effect */
+.primaryBtn:hover {
+  background: #9d4f31;
+}
+
+/* Add a focus state for keyboard accessibility */
+.primaryBtn:focus-visible {
+  outline: 2px solid #9d4f31;
+  outline-offset: 2px;
+}
+
+.footerNote {
+  margin-top: 14px;
+  color: #6b7280;
+  font-size: 13px;
+  text-align: center;
+}

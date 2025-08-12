@@ -119,8 +119,8 @@ export default function AboutPage() {
             {[
               { name: 'Josiah Basilio', role: 'Creative Director', imgSrc: '/images/josiah.png' },
               { name: 'Nisarg Patel', role: 'Tech Lead', imgSrc: '/images/nisarg.jpg' },
-              { name: 'Sansita Pattnaik', role: 'Community Manager', imgSrc: '/images/Sansita.jpg' },
-              { name: 'Dhara Patel', role: 'Community Manager', imgSrc: '/images/Dhara.jpg' },
+              { name: 'Sansita Pattnaik', role: 'Community Manager', imgSrc: '/images/sansita.jpg' },
+              { name: 'Dhara Patel', role: 'Community Manager', imgSrc: '/images/dhara.jpg' },
             ].map(member => (
               <figure key={member.name} className="team-member">
                 <Image
