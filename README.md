@@ -1,5 +1,7 @@
 # Light Heart Vision
 
+Website: https://light-heart-vision.vercel.app/
+
 Light Heart Vision is a community platform designed to foster mindfulness, collaboration, and co-creation.  
 
 This project was developed over eight months as part of our capstone course at Algonquin College of Applied Arts and Technology, in collaboration with a real client. The platform was a multi-team effort:  
